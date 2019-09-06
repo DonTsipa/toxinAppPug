@@ -11,9 +11,9 @@ module.exports = {
 	},
 
 	use: {
-		templates: '.html',
+		templates: '.pug',
 		scripts: '.js',
-		styles: '.css',
+		styles: '.scss',
 	},
 
 	build: {
@@ -23,8 +23,8 @@ module.exports = {
 	},
 
 	autoCreate: {
-		onlyOnWatch: true,
-		files: [ '.css' ],
+		onlyOnWatch: false,
+		files: [ '.scss' ],
 		levels: [ 'develop' ],
 		ignoreNodes: [ 'symbol', /_no_js/i ],
 	},
