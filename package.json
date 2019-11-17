@@ -65,5 +65,9 @@
   "engines": {
     "node": ">=10.0.0",
     "npm": ">=5.0.0"
+  },
+  "dependencies": {
+    "datepicker-bootstrap": "^1.9.13",
+    "jquery": "^3.4.1"
   }
 }

@@ -17,16 +17,18 @@ module.exports = {
 	},
 
 	build: {
+    	babel: true, // нужен ли транспайлер Babel для JS
 		imagemin: [ 'png', 'jpg' ],
 		sourcemaps: [ 'js', 'css' ],
 		autoprefixer: [ 'last 3 versions', 'ie 10', 'ie 11' ],
+		globalStyles: 'app/scss/vars.scss' 
 	},
 
 	autoCreate: {
 		onlyOnWatch: false,
-		files: [ '.scss' ],
+		files: [ '.scss, .js' ],
 		levels: [ 'develop' ],
-		ignoreNodes: [ 'symbol', /_no_js/i ],
+		ignoreScript: [ /(_|--)[\w]/i  ], // игнорируем модификаторы при создании скриптов
 	},
 
 	dist: {
