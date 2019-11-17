@@ -1,0 +1,25 @@
+header(class="header")
+            a(href="index.html")
+                include header__logo.html
+            nav(class="header__navigation")
+                div(class="header__nav-element")
+                 a(href="#") О нас
+                div(class="header__nav-element")
+                 div(class="header__dropdown")
+                    ul
+                        li Услуги 
+                            include expend_more.html 
+                div(class="header__nav-element")
+                            a(href="#") Вакансии
+                div(class="header__nav-element")
+                            a(href="#") Новости
+                div(class="header__nav-element")
+                    div(class="header__dropdown")
+                        ul
+                            li Соглашения 
+                                include expend_more.html
+            div(class="header__buttons")
+                div(class="cards__button cards__button_theme_log-in")
+                    p ВОЙТИ
+                div(class="cards__button cards__button_theme_register")
+                    p Зарегистрироваться

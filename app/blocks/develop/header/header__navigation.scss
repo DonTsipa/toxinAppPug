@@ -1,0 +1,11 @@
+.header__navigation{
+   position:relative;
+   display:flex;
+   flex-flow: row nowrap;
+   justify-content: space-evenly;
+   float:right;
+   align-items: center;   
+   flex-basis: 769px;
+   z-index:1;
+
+}

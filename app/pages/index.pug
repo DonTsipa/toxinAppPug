@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title landing-page
+        <!-- BEMGO:styles -->
+        
+    body
+        include ../blocks/develop/header/header.pug
+        main
+            img(class="main__background")
+            div(class="cards")
+                h2(class="cards__heading") Найдём номера под ваши пожелания
+                div(class="cards__date-div input-daterange")
+                    input(type="text" data-multiple-dates-separator=" - " class="cards__date-input")
+                    input(type="text" data-multiple-dates-separator=" - " class="cards__date-input" )
+        <!-- BEMGO:scripts -->

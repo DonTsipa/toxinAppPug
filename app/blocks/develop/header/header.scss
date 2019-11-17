@@ -1,0 +1,29 @@
+$back:#fff;
+.header {
+	display: flex;
+	flex-flow: row nowrap;
+	background-color:$back;
+	padding: 30px 0;
+	width:100%;
+	color:$Dark-Shade75;
+	font-size:14px;
+	line-height:17px;
+	font-family:'Montserrat';
+	align-items: center;
+	height:70px;
+	z-index:1;
+	
+    padding: 0 140px 0 140px;
+    position: relative;
+    justify-content: space-between;
+
+}
+.header a{
+	color:$Dark-Shade75;
+	text-decoration: none;
+}
+.header ul{
+	list-style: none;
+	margin:0;
+	padding:0;
+}

@@ -1,0 +1,16 @@
+$Dark-Shade :#1f2041;
+$Dark-Shade75:rgba(31, 32, 65, 0.75);
+$Dark-Shade50:rgba(31, 32, 65, 0.5);
+$Dark-Shade05:rgba(31, 32, 65, 0.05);
+$Purple:#BC9CFF;
+$Green:#6FCF97;
+$Gradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+$White: #fff;
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+body{
+    margin:0;
+}
+*{
+    box-sizing: border-box;
+
+}
