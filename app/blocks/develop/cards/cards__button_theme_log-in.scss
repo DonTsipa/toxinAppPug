@@ -1,6 +1,6 @@
 .cards__button_theme_log-in{
     position: relative;
-    flex-basis:83px;
+    flex-basis:87px;
     height: 32px;    
 /* identical to box height */
     text-transform: uppercase;
@@ -11,7 +11,10 @@
     background-clip: padding-box; 
     transition: all .3s ease-in-out;
     p{
+        letter-spacing: 1px;
         z-index:1;
+        line-height: 14px;
+        font-size:11px;
     }
     &:before {
         content: '';
