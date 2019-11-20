@@ -1,4 +1,14 @@
 .header__nav-element{
     cursor: pointer;
-
+    
+}
+.header__nav-element a{
+    color:$Dark-Shade75;
+	text-decoration: none;
+}
+.header__nav-element .material-icons{
+    width:24px;
+	height:17px;
+	line-height: 17px;
+    float:right;
 }

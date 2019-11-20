@@ -11,8 +11,10 @@ $button:red;
     text-transform: uppercase;
     align-items: center;
     cursor: pointer;
-
+    flex-basis: 44px;
     justify-content: center;
+    position: relative;
+
 }
 .cards__button p{
     font-weight: bold;

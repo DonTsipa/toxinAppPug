@@ -7,16 +7,35 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+        link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
         title landing-page
         <!-- BEMGO:styles -->
         
     body
+        div(class="main-index-background")
         include ../blocks/develop/header/header.pug
         main
-            img(class="main__background")
-            div(class="cards")
-                h2(class="cards__heading") Найдём номера под ваши пожелания
+            div(class="cards cards_theme-index")
+                h2(class="cards__heading") Найдём номера под <br> ваши пожелания
                 div(class="cards__date-div input-daterange")
-                    input(type="text" data-multiple-dates-separator=" - " class="cards__date-input")
-                    input(type="text" data-multiple-dates-separator=" - " class="cards__date-input" )
+                    label(for="date-from" class="cards__input cards__date-label")
+                        p(class="cards__input-heading") Прибытие
+                        input(id="date-from" type="text" class=" cards__date-input" data-multiple-dates-separator=" - " placeholder='ДД.ММ.ГГГГ')
+                        i(class=' cards__material-icons material-icons md-24') expand_more
+                    label(for="date-to" class="cards__input cards__date-label")
+                        p(class="cards__input-heading") Выезд
+                        input( id="date-to" type="text" class="cards__date-input" data-multiple-dates-separator=" - " placeholder='ДД.ММ.ГГГГ')
+                        i(class='cards__material-icons material-icons md-24') expand_more
+                div(class="cards_option-picker cards__input")
+                    p(class="cards__input-heading") Гости
+                    i(class='cards__material-icons material-icons md-24') expand_more
+                    p(class="cards_option-picker__p") Сколько гостей
+                div(class="cards__button cards__button_theme_filled")
+                    p Подобрать номер
+                    i(class="cards__material-icons material-icons md-24") arrow_forward
+
+                
+                
+                          
         <!-- BEMGO:scripts -->
