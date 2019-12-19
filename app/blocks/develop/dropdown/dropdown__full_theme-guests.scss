@@ -1,0 +1,10 @@
+.dropdown__full_theme-guests{
+    height:160px;
+    position:absolute;
+    opacity: 0;
+    top:0%;
+    left:0;
+    z-index:-1;
+    width:320px;
+    transition: all .2s ease-in-out;
+}
