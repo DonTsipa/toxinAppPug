@@ -9,7 +9,6 @@ module.exports = {
 	app: {
 		name: 'Demo',
 	},
-
 	use: {
 		templates: '.pug',
 		scripts: '.js',
@@ -21,6 +20,7 @@ module.exports = {
 		imagemin: [ 'png', 'jpg' ],
 		sourcemaps: [ 'js', 'css' ],
 		autoprefixer: [ 'last 3 versions', 'ie 10', 'ie 11' ],
+		bundles: [ 'css', 'js' ],
 		globalStyles: 'app/scss/vars.scss' 
 	},
 
@@ -55,6 +55,9 @@ module.exports = {
 	HTMLBeautify: {
 		preserve_newlines: false,
 	},
+	addContent: {
+		scss: '.[name] {}', 
+	  },
 
 }
 

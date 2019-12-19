@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 html(lang="en")
     head
         meta(charset="UTF-8")
@@ -15,25 +13,29 @@ html(lang="en")
     body
         div(class="main-index-background")
         include ../blocks/develop/header/header.pug
-        main
-            div(class="cards cards_theme-index")
-                h2(class="cards__heading") Найдём номера под <br> ваши пожелания
-                div(class="cards__date-div input-daterange")
-                    label(for="date-from" class="cards__input cards__date-label")
-                        p(class="cards__input-heading") Прибытие
-                        input(id="date-from" type="text" class=" cards__date-input" data-multiple-dates-separator=" - " placeholder='ДД.ММ.ГГГГ')
-                        i(class=' cards__material-icons material-icons md-24') expand_more
-                    label(for="date-to" class="cards__input cards__date-label")
-                        p(class="cards__input-heading") Выезд
-                        input( id="date-to" type="text" class="cards__date-input" data-multiple-dates-separator=" - " placeholder='ДД.ММ.ГГГГ')
-                        i(class='cards__material-icons material-icons md-24') expand_more
-                div(class="cards_option-picker cards__input")
-                    p(class="cards__input-heading") Гости
-                    i(class='cards__material-icons material-icons md-24') expand_more
-                    p(class="cards_option-picker__p") Сколько гостей
-                div(class="cards__button cards__button_theme_filled")
-                    p Подобрать номер
-                    i(class="cards__material-icons material-icons md-24") arrow_forward
+        main(class="main_theme-index")
+            form(action="" method="POST")
+                div(class="cards cards_theme-index")
+                    h2(class="cards__heading") Найдём номера под <br> ваши пожелания
+                    div(class="cards__date-div input-group input-daterange")
+                        label(for="date-from" class="cards__input cards__date-label")
+                            p(class="cards__input-heading") Прибытие
+                            input(id="date-from" type="text" class=" cards__date-input" data-multiple-dates-separator=" - " readonly placeholder='ДД.ММ.ГГГГ')
+                            i(class=' cards__material-icons material-icons md-24') expand_more
+                        label(for="date-to" class="cards__input cards__date-label")
+                            p(class="cards__input-heading") Выезд
+                            input( id="date-to" type="text" class="cards__date-input" data-multiple-dates-separator=" - "  readonly placeholder='ДД.ММ.ГГГГ')
+                            i(class='cards__material-icons material-icons md-24') expand_more
+                    div(class="dropdown")
+                        div(class="cards__input")
+                            p(class="cards__input-heading") Гости
+                            p(class="cards__input-text") Сколько гостей
+                            i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more
+                        include ../blocks/develop/dropdown/dropdown.pug
+                    button(type="submit" class="cards__button cards__button_theme_filled")
+                        p Подобрать номер
+                        i(class="cards__material-icons material-icons md-24") arrow_forward
+        include ../blocks/develop/footer/footer.pug
 
                 
                 

@@ -2,18 +2,19 @@
 module.exports = {
 
     modules: [
-    {
-        from: 'https://code.jquery.com/',
-        inject: [ 'jquery-3.4.1.min.js' ],
+      {
+        from: 'node_modules/lightpick/css',
+        inject: [ 'lightpick.css' ],
     },
       {
-        from: './app/datepicker-bootstrap/',
-        inject: [ 'bootstrap-datepicker.min.js' ], // Этот файл будет подключен на странице отдельно
+        from: 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/',
+        inject: [ 'moment.min.js' ],
     },
     {
-        from: './app/datepicker-bootstrap/',
-        inject: [ 'bootstrap-datepicker.min.css' ],
+        from: 'node_modules/lightpick',
+        inject: [ 'lightpick.js' ],
     },
 
     ]  
+
   }
