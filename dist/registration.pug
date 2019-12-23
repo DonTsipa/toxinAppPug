@@ -1,0 +1,53 @@
+//<!DOCTYPE html>
+//html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge") 
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+        link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
+        title Registration
+    body
+        div(class="main-registration-background")
+        include ../blocks/develop/header/header.pug
+        main(class="main_theme-registration")
+            form(action="" method="POST")
+                div(class="cards cards_theme_registration")
+                    h2(class="cards__heading") Регистрация аккаунта
+                    div(class="registration__div")
+                        div(class="cards__input")
+                            input(class="cards__input-text" type = "text" name="name" placeholder="имя")
+                        div(class="cards__input")
+                            input(class="cards__input-text" type = "text" name="lastName" placeholder="Фамилия") 
+                        div(class="radiobuttons")
+                            label(class="radiobuttons__label" for="male")
+                                input( name="sex" id="male" class="radiobuttons__input" type="radio" )
+                                label(class="radiobuttons__radio" for="male")
+                                p(class="radiobuttons__text") Мужчина
+                            label(class="radiobuttons__label" for="female")
+                                input( name="sex" id="female" class="radiobuttons__input" type="radio")
+                                label(class="radiobuttons__radio" for="female")
+                                p(class="radiobuttons__text") Женщина
+                    div(class="registration__div")
+                        label(class="cards__input datepicker_theme-birthDate datepicker__label")
+                            input(class="cards__date-input" id="birthDate" name="birthDate" readonly placeholder="ДД.ММ.ГГГГ")
+                            p(class="cards__input-heading") дата рождения
+                    div(class="registration__div")
+                        div(class="cards__input")
+                            p(class="cards__input-heading") Данные для входа в сервис
+                            input(class="cards__input-text" type = "text" name="Email" placeholder="Email") 
+                        div(class="cards__input")
+                            input(class="cards__input-text" type = "password" name="Email" placeholder="Пароль") 
+                        label(class="toggle" for="specialOffer")
+                            input(name="specialOffer" id="specialOffer" class="toggle__input" type="checkbox")
+                            label(class="toggle__checkbox" for="specialOffer")
+                            p(class="toggle__text") Получать спецпредложения
+                    button(type="submit" class="cards__button cards__button_theme_filled")
+                        p перейти к оплате
+                        i(class="cards__material-icons material-icons md-24") arrow_forward
+                    div(class="registration__log-in")
+                        p(class="registration__log-in-text") Уже есть аккаунт на Toxin
+                        div(class="cards__button" class="cards__button_theme_empty button_theme_registration")
+                            p Войти
+        include ../blocks/develop/footer/footer.pug
