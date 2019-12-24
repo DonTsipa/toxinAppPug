@@ -1,5 +1,7 @@
 const app = require('./app');
-const database = require('./database');
+const databaseBLock = require('./database');
+const database = databaseBLock.database;
+
 const config = require('./config');
 
 database()
@@ -14,6 +16,3 @@ database()
     console.log(e);
     process.exit(1);
   });
-  app.listen(config.PORT, () => 
-  console.log(`hotel app listening on port ${config.PORT}!`)
-  );

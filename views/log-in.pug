@@ -12,7 +12,7 @@ html(lang="en")
         title Log-in
     body
         div(class="main-registration-background")
-        include ../blocks/header/header.pug
+        include ../blocks/header.pug
         main(class="main_theme-registration")
             form(action="log-in" method="POST")
                 div(class="cards cards_theme_log-in")
@@ -27,6 +27,6 @@ html(lang="en")
                         i(class="cards__material-icons material-icons md-24") arrow_forward
                     div(class="registration__log-in")
                         p(class="registration__log-in-text") Нет аккаунта на Toxin?
-                        a(class="cards__button" class="cards__button_theme_empty button_theme_registration" href="register.html")
+                        a(class="cards__button" class="cards__button_theme_empty button_theme_registration" href="registration")
                             p создать
-        include ../blocks/footer/footer.pug
+        include ../blocks/footer.pug

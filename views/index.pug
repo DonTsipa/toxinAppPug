@@ -7,16 +7,17 @@ html(lang="en")
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
-        title landing-page
-        link(href="app.css" rel="stylesheet")
-        link(href="lightpick.css" rel="stylesheet")
+        link(href="./styles/app.css" rel="stylesheet")
+        link(rel="stylesheet" href="./styles/search.min.css")
+        link(rel="stylesheet" href="./styles/lightpick.css")
+        title Toxin
         <!-- BEMGO:styles --> 
     body
         div(class="wtf")
         div(class="main-index-background")
-        include ../blocks/header/header.pug
+        include ../blocks/header.pug
         main(class="main_theme-index")
-            form(action="/serchIndex" method="POST")
+            form(action="/search" method="POST")
                 div(class="cards cards_theme-index")
                     h2(class="cards__heading") Найдём номера под <br> ваши пожелания
                     div(class="cards__date-div input-group input-daterange")
@@ -28,11 +29,11 @@ html(lang="en")
                             p(class="cards__input-heading") Выезд
                             input(name="indexDateto" id="date-to" type="text" class="cards__date-input" data-multiple-dates-separator=" - "  readonly placeholder='ДД.ММ.ГГГГ')
                             i(class='cards__material-icons material-icons md-24') expand_more
-                    include ../blocks/dropdown/guestsDropdown.pug
+                    include ../blocks/guestsDropdown.pug
                     button(type="submit" class="cards__button cards__button_theme_filled")
                         p Подобрать номер
                         i(class="cards__material-icons material-icons md-24") arrow_forward
-        include ../blocks/footer/footer.pug
+        include ../blocks/footer.pug
 
                 
                 

@@ -1,6 +1,5 @@
-const config = require('./config');
+const config = require('.././config');
 const mongoose = require('mongoose');
-var client = require('mongodb').MongoClient; 
 module.exports = () => {
   return new Promise((resolve, reject) => {
     mongoose.Promise = global.Promise;
@@ -8,10 +7,8 @@ module.exports = () => {
     mongoose.connection
       .on('error', error => reject(error))
       .on('close', () => console.log('Database connection closed.'))
-      client.connect(config.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopology: true }, function(err,db) 
-      {
-
-        
-      });
+      .once('open', () => resolve(mongoose.connections[0]));
+      mongoose.connect(config.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopology: true }, function(err,db) 
+      {});
      });
 }
