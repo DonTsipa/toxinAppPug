@@ -1,0 +1,31 @@
+-console.log(user);
+header(class="header")
+            a(href="index.html")
+                include ../logo/logo.html
+            nav(class="header__navigation")
+                div(class="header__nav-element")
+                 a(href="#") О нас
+                div(class="header__nav-element")
+                 div(class="header__nav-element")
+                    ul(class="header__dropdown")
+                        li
+                            a Услуги 
+                                i(class="material-icons md-24") expand_more
+                div(class="header__nav-element")
+                            a(href="#") Вакансии
+                div(class="header__nav-element")
+                            a(href="#") Новости
+                div(class="header__nav-element")
+                    div(class="header__dropdown")
+                        ul
+                            li
+                                a Соглашения 
+                                    i(class="material-icons md-24") expand_more
+                if (!user) || (!user.id && !user.login && !user.name)
+                    a(class="header__nav-element header__log-in cards__button cards__button_theme_empty" href="login")
+                        p ВОЙТИ
+                    a(class="header__nav-element header__registration cards__button cards__button_theme_filled" href="registration")
+                        p Зарегистрироваться
+                else
+                    div(class="header__nav-element")
+                            a(href="#")=user.name
