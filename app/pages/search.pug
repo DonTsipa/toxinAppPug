@@ -8,49 +8,52 @@ html(lang="en")
         link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
         link(href="./styles/app.css" rel="stylesheet")
-        link(rel="stylesheet" href="./styles/search.min.css")
-        link(rel="stylesheet" href="./styles/lightpick.css")
+        link(rel="stylesheet" type ="text/css" href="./styles/search.min.css")
+        link(rel="stylesheet" type ="text/css" href="./styles/lightpick.css")
         title Search
     body
         include ../blocks/develop/header/header.pug
         main(class="main_theme-search")
             form(action = "search" method= "POST")
                 div(class="filters filters_theme-search")
-                label(class="cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
-                    input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(DateFrom + ' - '+DateTo)  placeholder='ДД.ММ.ГГГГ')
-                    p(class="cards__input-heading") даты пребывания в отеле
-                    i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more
-                include ../blocks/develop/dropdown/guestsDropdown.pug
-                include ../blocks/develop/range/range.pug
-                div(class="checkboxes" )
-                    p(class="cards__input-heading") Checkbox Buttons
-                    label(class="checkboxes__label" for="smoking")
-                        input( name="smoking" class="checkboxes__input" type="checkbox" id="smoking")
-                        label(class="checkboxes__checkbox" for="smoking")
-                        p(class="checkboxes__text") Можно курить
-                    label(class="checkboxes__label" for="pets")
-                        input(name="pets" class="checkboxes__input" type="checkbox" id="pets")
-                        label(class="checkboxes__checkbox" for="pets")  
-                        p(class="checkboxes__text") Можно с питомцами
-                    label(class="checkboxes__label" for="friends")
-                        input(name="friends" class="checkboxes__input" type="checkbox" id="friends") 
-                        label(class="checkboxes__checkbox" for="friends")
-                        p(class="checkboxes__text") Можно пригласить гостей <br> (до 10 человек)
-                div(class="checkboxes")
-                    p(class="cards__input-heading") доступность
-                    label(class="checkboxes__label" for="wide_coridor")
-                        input(name="wide_coridor" class="checkboxes__input" type="checkbox" id="wide_coridor")
-                        label(class="checkboxes__checkbox" for="wide_coridor")
-                        div(class="checkboxes__text-with-description")
-                            p(class="checkboxes__text checkboxes__text_theme-bold") Широкий коридор
-                            p(class="checkboxes__text") Ширина коридоров в номере не менее 91 см.
-                    label(class="checkboxes__label" for="disabled_assistant")
-                        input(name="disabled_assistant" class="checkboxes__input" type="checkbox" id="disabled_assistant") 
-                        label(class="checkboxes__checkbox" for="disabled_assistant")
-                        div(class="checkboxes__text-with-description")
-                            p(class="checkboxes__text checkboxes__text_theme-bold") Помощник для инвалидов
-                            p(class="checkboxes__text") На 1 этаже вас встретит специалист  и проводит до номера.
-                include ../blocks/develop/dropdown/facilitiesDropdown.pug
+                    label(class="cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
+                        input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(DateFrom + ' - '+DateTo)  placeholder='ДД.ММ.ГГГГ')
+                        p(class="cards__input-heading") даты пребывания в отеле
+                        i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more
+                    include ../blocks/develop/dropdown/guestsDropdown.pug
+                    include ../blocks/develop/range/range.pug
+                    div(class="checkboxes" )
+                        p(class="cards__input-heading") Checkbox Buttons
+                        label(class="checkboxes__label" for="smoking")
+                            input( name="smoking" class="checkboxes__input" type="checkbox" id="smoking")
+                            label(class="checkboxes__checkbox" for="smoking")
+                            p(class="checkboxes__text") Можно курить
+                        label(class="checkboxes__label" for="pets")
+                            input(name="pets" class="checkboxes__input" type="checkbox" id="pets")
+                            label(class="checkboxes__checkbox" for="pets")  
+                            p(class="checkboxes__text") Можно с питомцами
+                        label(class="checkboxes__label" for="friends")
+                            input(name="friends" class="checkboxes__input" type="checkbox" id="friends") 
+                            label(class="checkboxes__checkbox" for="friends")
+                            p(class="checkboxes__text") Можно пригласить гостей <br> (до 10 человек)
+                    div(class="checkboxes")
+                        p(class="cards__input-heading") доступность
+                        label(class="checkboxes__label" for="wide_coridor")
+                            input(name="wide_coridor" class="checkboxes__input" type="checkbox" id="wide_coridor")
+                            label(class="checkboxes__checkbox" for="wide_coridor")
+                            div(class="checkboxes__text-with-description")
+                                p(class="checkboxes__text checkboxes__text_theme-bold") Широкий коридор
+                                p(class="checkboxes__text") Ширина коридоров в номере не менее 91 см.
+                        label(class="checkboxes__label" for="disabled_assistant")
+                            input(name="disabled_assistant" class="checkboxes__input" type="checkbox" id="disabled_assistant") 
+                            label(class="checkboxes__checkbox" for="disabled_assistant")
+                            div(class="checkboxes__text-with-description")
+                                p(class="checkboxes__text checkboxes__text_theme-bold") Помощник для инвалидов
+                                p(class="checkboxes__text") На 1 этаже вас встретит специалист  и проводит до номера.
+                    include ../blocks/develop/dropdown/facilitiesDropdown.pug
+                    button(type="submit" id = "search" class="cards__button cards__button_theme_filled")
+                        p Найти
+                        i(class="cards__material-icons material-icons md-24") arrow_forward
                 //div(class="checkboxes checkboxes__dropdown")
                     label(class="checkboxes__label" for="breakfast")
                         input( name="breakfast" class="checkboxes__input" type="checkbox" id="smoking")

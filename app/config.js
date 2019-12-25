@@ -17,7 +17,7 @@ module.exports = {
 
 	build: {
     	babel: true, // нужен ли транспайлер Babel для JS
-		//imagemin: [ 'png', 'jpg' ],
+		imagemin: [ 'png', 'jpg' ],
 		bundles: [ 'css', 'js' ],
 		autoprefixer: [ 'last 3 versions', 'ie 10', 'ie 11' ],
 		globalStyles: 'app/scss/vars.scss' ,
