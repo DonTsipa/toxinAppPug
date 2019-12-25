@@ -1,12 +1,12 @@
-mixin checkbox(name,text)
+mixin checkbox(name,text,check)
     label(class="checkboxes__label" for=name)
-        input( name=name class="checkboxes__input" value = "checked" type="checkbox" id=name)
+        input(name=name class="checkboxes__input" check value = "true" checked = check type="checkbox" id=name)
         label(class="checkboxes__checkbox" for=name)
         if block
             block
         else
             p(class="checkboxes__text")=text
-
+-console.log(smoking,pets,facilities)
 <!DOCTYPE html>
 html(lang="en")
     head
@@ -33,16 +33,16 @@ html(lang="en")
                     include ../blocks/develop/range/range.pug
                     div(class="checkboxes" )
                         p(class="cards__input-heading") Checkbox Buttons
-                        +checkbox("smoking","Можно курить")
-                        +checkbox("pets","Можно с питомцами")
-                        +checkbox("friends","Можно пригласить гостей (до 10 человек)")
+                        +checkbox("smoking","Можно курить",smoking)
+                        +checkbox("pets","Можно с питомцами",pets)
+                        +checkbox("friends","Можно пригласить гостей (до 10 человек)",friends)
                     div(class="checkboxes")
                         p(class="cards__input-heading") доступность
-                        +checkbox("wide_coridor","Широкий коридор")
+                        +checkbox("wide_coridor","Широкий коридор",wide_coridor)
                             div(class="checkboxes__text-with-description")
                                 p(class="checkboxes__text checkboxes__text_theme-bold") Широкий коридор
                                 p(class="checkboxes__text") Ширина коридоров в номере не менее 91 см.
-                        +checkbox("disabled_assistant","Помощник для инвалидов")
+                        +checkbox("disabled_assistant","Помощник для инвалидов",disabled_assistant)
                             div(class="checkboxes__text-with-description")
                                 p(class="checkboxes__text checkboxes__text_theme-bold") Помощник для инвалидов
                                 p(class="checkboxes__text") На 1 этаже вас встретит специалист  и проводит до номера.
