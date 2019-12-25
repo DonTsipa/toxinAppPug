@@ -3,7 +3,7 @@ module.exports = {
 
     modules: [
     {
-        from: 'node_modules/nouislider/distribute',
+        from: 'app/modules/',
         inject: [ 'nouislider.js','nouislider.css' ],
     },
 

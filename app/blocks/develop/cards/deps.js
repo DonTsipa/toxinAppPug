@@ -3,7 +3,7 @@ module.exports = {
 
     modules: [
       {
-        from: 'node_modules/lightpick/css',
+        from: 'app/modules/',
         inject: [ 'lightpick.css' ],
     },
       {
@@ -11,7 +11,7 @@ module.exports = {
         inject: [ 'moment.min.js' ],
     },
     {
-        from: 'node_modules/lightpick',
+        from: 'app/modules/',
         inject: [ 'lightpick.js' ],
     },
 
