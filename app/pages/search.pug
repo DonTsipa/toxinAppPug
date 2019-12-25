@@ -14,7 +14,8 @@ html(lang="en")
     body
         include ../blocks/develop/header/header.pug
         main(class="main_theme-search")
-            div(class="filters filters_theme-search")
+            form(action = "search" method= "POST")
+                div(class="filters filters_theme-search")
                 label(class="cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
                     input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(DateFrom + ' - '+DateTo)  placeholder='ДД.ММ.ГГГГ')
                     p(class="cards__input-heading") даты пребывания в отеле
@@ -83,6 +84,25 @@ html(lang="en")
                         input( name="smoking" class="checkboxes__input" type="checkbox" id="smoking")
                         label(class="checkboxes__checkbox" for="smoking")
                         p(class="checkboxes__text") Можно курить
+            div(class="rooms")
+                h2.cards__heading Номера, которые мы для вас подобрали
+                div(class = "roomсards")
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+                    include ../blocks/develop/roomcard/roomcard.pug
+
         include ../blocks/develop/footer/footer.pug    
     script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js")
     script(src="./scripts/lightpick.js")

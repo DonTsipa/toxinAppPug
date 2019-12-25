@@ -1,0 +1,12 @@
+.roomcard__stars {
+height:24px;
+display: flex;
+flex-flow:row;
+justify-content: space-between;
+i{
+    background:linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+}

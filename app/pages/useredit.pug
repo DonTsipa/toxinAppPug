@@ -1,0 +1,76 @@
+-if(!user){
+- user = {
+-    name:'',
+-    lastName:'',
+-    sex:'',
+-    datebirth:'',
+-    login:''
+-}   
+-}
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge") 
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+        link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
+        link(href="./styles/app.css" rel="stylesheet")
+        link(rel="stylesheet" href="./styles/search.min.css")
+        link(rel="stylesheet" href="./styles/lightpick.css")
+        title Edit
+    body
+        div(class="main-registration-background")
+        include ../blocks/develop/header/header.pug
+        main(class="main_theme-registration")
+            form(action="edit" method="POST")
+                div(class="cards cards_theme_registration")
+                    h2(class="cards__heading") Личный кабинет
+                    div(class="registration__div")
+                        div(class="cards__input")
+                            input(class="cards__input-text" type = "text" name="name" id="name" value=user.name)
+                        div(class="cards__input")
+                            input(class="cards__input-text" type = "text" name="lastName" id="lastName" value=user.lastName) 
+                        div(class="radiobuttons" id ="sex")
+                        if (user.sex == "male")
+                            label(class="radiobuttons__label" for="male")
+                                input( name="sex" id="male" checked class="radiobuttons__input" type="radio" value = "male")
+                                label(class="radiobuttons__radio" for="male")
+                                p(class="radiobuttons__text") Мужчина
+                            label(class="radiobuttons__label" for="female")
+                                input( name="sex" id="female" class="radiobuttons__input" type="radio" value = "female")
+                                label(class="radiobuttons__radio" for="female")
+                                p(class="radiobuttons__text") Женщина
+                        else 
+                            label(class="radiobuttons__label" for="male")
+                                input( name="sex" id="male" class="radiobuttons__input" type="radio" value = "male")
+                                label(class="radiobuttons__radio" for="male")
+                                p(class="radiobuttons__text") Мужчина
+                            label(class="radiobuttons__label" for="female")
+                                input( name="sex" id="female" checked class="radiobuttons__input" type="radio" value = "female")
+                                label(class="radiobuttons__radio" for="female")
+                                p(class="radiobuttons__text") Женщина
+                    div(class="registration__div")
+                        label(class="cards__input datepicker_theme-birthdate datepicker__label")
+                            input(class="cards__date-input" id="birthdate" name="birthdate" readonly value=user.birthdate)
+                            p(class="cards__input-heading") дата рождения
+                    div(class="registration__div")
+                        div(class="cards__input")
+                            p(class="cards__input-heading") Данные для входа в сервис
+                            input(class="cards__input-text" type = "text" id="Email" name="Email" value=user.login) 
+                        div(class="cards__input")
+                            input(class="cards__input-text" type = "password" id="password" name="password" placeholder="Пароль") 
+                        p(class='cards__input-text error' style="color:red; display: none" )
+                        //label(class="toggle" for="specialOffer")
+                            input(name="specialOffer" id="specialOffer" class="toggle__input" type="checkbox")
+                            label(class="toggle__checkbox" for="specialOffer")
+                            p(class="toggle__text") Получать спецпредложения
+                    button(type="submit" id = "edit" class="cards__button cards__button_theme_filled")
+                        p Сохранить
+                        i(class="cards__material-icons material-icons md-24") arrow_forward
+        include ../blocks/develop/footer/footer.pug
+    script(src="./scripts/registrationAjax.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js")
+    script(src="./scripts/lightpick.js")
+    script(src="./scripts/registration.min.js")

@@ -1,5 +1,5 @@
 header(class="header")
-            a(href="index.html")
+            a(href="index")
                 include ../logo/logo.html
             nav(class="header__navigation")
                 div(class="header__nav-element")
@@ -20,8 +20,11 @@ header(class="header")
                             li
                                 a Соглашения 
                                     i(class="material-icons md-24") expand_more
-                a(class="header__nav-element header__log-in cards__button cards__button_theme_empty" href="log-in.html")
-                    p ВОЙТИ
-                a(class="header__nav-element header__registration cards__button cards__button_theme_filled" href="registration.html")
-                    p Зарегистрироваться
-                        
+                if (!user) || (!user.id && !user.login && !user.name)
+                    a(class="header__nav-element header__log-in cards__button cards__button_theme_empty" href="login")
+                        p ВОЙТИ
+                    a(class="header__nav-element header__registration cards__button cards__button_theme_filled" href="registration")
+                        p Зарегистрироваться
+                else
+                    div(class="header__nav-element")
+                            a(href="#")=user.name

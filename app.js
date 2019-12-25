@@ -13,8 +13,8 @@ const config = require('./config')
 const MongoStore = require('connect-mongo')(session);
 
 const app = express();
-
-app.set('engine', 'pug');
+app.set("views","app/pages");
+app.set('view engine', 'pug');
 
 
 //database
@@ -71,7 +71,7 @@ app.all('/registration',urlencodedParser,registration)
 app.all('/login',jsonParser,log_in);
 
 
-app.use(express.static(path.join(__dirname,'views')));
+app.use(express.static(path.join(__dirname,'dist')));
 
   app.listen(config.PORT, () =>
   console.log(`Example app listening on port ${config.PORT}!`)
