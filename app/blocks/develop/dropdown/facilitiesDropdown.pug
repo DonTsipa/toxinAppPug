@@ -1,27 +1,33 @@
+- var opacity = [0.25,0.25,0.25]
+- if(facilities == undefined){facilities = {numberFacilities:"Удобства",bedrooms:0, beds:0,bathrooms:0}};
+- if(facilities.bedrooms>0){opacity[0] = 1}
+- if(facilities.beds>0){opacity[1] = 1}
+- if(facilities.bathrooms>0){opacity[2] = 1}
+
 div(class="dropdown")
     div(class="cards__input")
         p(class="cards__input-heading") удобства номера
-        input(class="cards__input-text" readonly type="text" name="numberFacilities" id="numberFacilities" value="Удобства")
+        input(class="cards__input-text" readonly type="text" name="numberFacilities" id="numberFacilities" value=facilities.numberFacilities)
         i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more
     div(class="dropdown__full")
         div(class="dropdown__options")
             div(class="dropdown__option")
                 p(class="dropdown__text") спальни
                 div(class='dropdown__buttons')
-                    div(class='dropdown__button dropdown__button_less')
-                    input(type="number" class="dropdown__input" value="0" readonly name="bedrooms")
+                    div(class='dropdown__button dropdown__button_less' style=("opacity:"+opacity[0]))
+                    input(type="number" class="dropdown__input" value=facilities.bedrooms readonly name="bedrooms" id="bedrooms")
                     div(class='dropdown__button dropdown__button_more')
             div(class="dropdown__option")
                 p(class="dropdown__text") кровати
                 div(class='dropdown__buttons')
-                    div(class='dropdown__button dropdown__button_less')
-                    input(type="number" class="dropdown__input" value="0" readonly name="beds")
+                    div(class='dropdown__button dropdown__button_less' style=("opacity:"+opacity[1]))
+                    input(type="number" class="dropdown__input" value=facilities.beds readonly name="beds" id="beds")
                     div(class='dropdown__button dropdown__button_more')
             div(class="dropdown__option")
                 p(class="dropdown__text") ванные комнаты
                 div(class='dropdown__buttons')
-                    div(class='dropdown__button dropdown__button_less')
-                    input(type="number" class="dropdown__input" value="0" readonly name="bathrooms")
+                    div(class='dropdown__button dropdown__button_less' style=("opacity:"+opacity[2]))
+                    input(type="number" class="dropdown__input" value=facilities.bathrooms readonly name="bathrooms" id="bathrooms")
                     div(class='dropdown__button dropdown__button_more')
         div(class="dropdown__footer")
             p(class="dropdown__action dropdown__reset") очистить

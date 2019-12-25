@@ -11,8 +11,10 @@ const jsonParser = bodyParser.json();
 const session = require('express-session');
 const config = require('./config')
 const MongoStore = require('connect-mongo')(session);
-
+const createRooms = require('./database/createRooms')
 const app = express();
+
+
 app.set("views","app/pages");
 app.set('view engine', 'pug');
 
@@ -76,5 +78,7 @@ app.use(express.static(path.join(__dirname,'dist')));
   app.listen(config.PORT, () =>
   console.log(`Example app listening on port ${config.PORT}!`)
 );
+
+//createRooms();
 
   module.exports = app;

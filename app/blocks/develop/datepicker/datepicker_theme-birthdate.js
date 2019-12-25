@@ -5,8 +5,7 @@
         autoclose:true,
         hideOnBodyClick:true,
         footer:true,
-        minDate: moment(),
-        maxDate: moment().add(1,'year'),
+        maxDate: moment(),
         locale:{
             buttons: {
               prev: 'arrow_backward',
