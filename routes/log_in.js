@@ -1,12 +1,11 @@
 var express = require('express');
-var app = express();
+var app = require('../app')
 const models = require('../models');
 const bcrypt = require('bcrypt-nodejs');
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const router = express.Router();
 
-app.set('engine', 'pug');
 
 
 router.get('/login',(req,res)=>{res.render('log-in.pug')})

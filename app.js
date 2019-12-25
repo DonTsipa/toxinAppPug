@@ -41,7 +41,7 @@ app.use(
     })
   );
 
-  app.all('/index',function(req,res){
+  app.all('/',function(req,res){
     const id = req.session.userId;
     const name = req.session.Name;
     const login = req.session.userLogin;
