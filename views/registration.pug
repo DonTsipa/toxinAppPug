@@ -42,6 +42,7 @@ html(lang="en")
                             input(class="cards__input-text" type = "text" id="Email" name="Email" placeholder="Email") 
                         div(class="cards__input")
                             input(class="cards__input-text" type = "password" id="password" name="password" placeholder="Пароль") 
+                        p(class='cards__input-text error' style="color:red; display: none" )
                         label(class="toggle" for="specialOffer")
                             input(name="specialOffer" id="specialOffer" class="toggle__input" type="checkbox")
                             label(class="toggle__checkbox" for="specialOffer")
@@ -51,7 +52,7 @@ html(lang="en")
                         i(class="cards__material-icons material-icons md-24") arrow_forward
                     div(class="registration__log-in")
                         p(class="registration__log-in-text") Уже есть аккаунт на Toxin
-                        a(class="cards__button" href= "log-in" class="cards__button_theme_empty button_theme_registration")
+                        a(class="cards__button" href= "login" class="cards__button_theme_empty button_theme_registration")
                             p Войти
         include ../blocks/footer.pug
     script(src="./scripts/registrationAjax.js")

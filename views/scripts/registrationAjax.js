@@ -10,7 +10,6 @@ submitButton.onclick = async function(e){
       sex: document.querySelector('input[name="sex"]:checked').value,
       birthdate: document.querySelector('#birthdate').value,
     };
-    console.log(data);
     let response = await fetch('/registration', {
         method: 'POST',
         headers: {
@@ -19,7 +18,11 @@ submitButton.onclick = async function(e){
         body: JSON.stringify(data)
       });
       let result = await response.json();
+      console.log(result)
+
       if(!result.ok){
+         errorBlock = document.querySelector('.error');
+          if(result.fields){
           result.fields.forEach(field =>{
             error = document.querySelectorAll("input[name="+field+"]");
             error.forEach(element =>{
@@ -27,18 +30,23 @@ submitButton.onclick = async function(e){
                 parent.style = 'border: 1px solid red;';
                 element.addEventListener("input",
                 e=>{
-                console.log(element.parentElement);
                 element.parentElement.removeAttribute('style');
             },{once:true}) 
             //input не работает на датапикере
             element.addEventListener("click",
             e=>{
-            console.log(element.parentElement);
             element.parentElement.removeAttribute('style');
+            errorBlock.style.display = "none";
         },{once:true}) 
             });
-
           })
+        }
+          errorBlock.style.display = "block";
+          errorBlock.innerHTML =result.error;      
+      } else{
+        window.location.href = window.location.origin + '/index';
+
       }
+
 }
 

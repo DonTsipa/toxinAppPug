@@ -1,10 +1,8 @@
 var express = require('express');
 var app = express();
-const path=require('path');
 const bcrypt = require('bcrypt-nodejs');
 const models = require('../models');
 const pattern =  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
 app.set('view engine', 'pug');
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -27,39 +25,51 @@ router.post('/registration',jsonParser,(req,res)=>{
   const password = req.body.password;
   let fieldsErr = [];
   if (!Email || !password || !name || !sex || !lastName || !birthdate) {
-    console.log(Email,password,name,sex,lastName,birthdate)
-    if(!Email){fieldsErr.push("Email")
-  }else if (!pattern.test(Email)) {
-    fieldsErr.push("Email");
-    }
-    if(!password)fieldsErr.push("password");
+    if(!Email)fieldsErr.push("Email");
+    if(!password)fieldsErr.push("password") 
     if(!name)fieldsErr.push("name");
     if(!sex)fieldsErr.push("sex");
     if(!lastName)fieldsErr.push("lastName");
     if(!birthdate)fieldsErr.push("birthdate");
     res.json({
       ok: false,
-      error: 'Все поля должны быть заполнены!',
+      error: 'Все поля должны быть заполнены',
       fields:fieldsErr,
     });
-  } else {
-    models.User.findOne({
-      Email
-    }).then(user => {
+  } else if (!pattern.test(Email)) {
+    fieldsErr.push("Email");
+    res.json({
+      ok: false,
+      error: 'Введите корректный Email',
+      fields:fieldsErr,
+    });
+  }else if(password.length<5){
+    fieldsErr.push("password");
+    res.json({
+      ok: false,
+      error: 'Пароль не менее 5 символов',
+      fields:fieldsErr,
+    })
+  }
+    else {
+    models.User.findOne({login: Email}).then(user => {
       if (!user) {
         bcrypt.hash(password, null, null, (err, hash) => {
           models.User.create({
             name,
             sex,
-            Email,
-            password: hash,
+            login:Email,
+            password:hash,
             birthdate,
             lastName
           })
             .then(user => {
-              console.log(user);
-              res.render('index.pug')
-              
+              req.session.Name = user.name + " " + user.lastName;
+              req.session.userId = user.id;
+              req.session.userLogin = user.login;
+              res.json({
+                ok:true
+              });
             })
             .catch(err => {
               console.log(err);

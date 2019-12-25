@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const user = new Schema({
-    Orders:[],
     name:{
         type:String,
         require:true,
@@ -11,7 +10,7 @@ const user = new Schema({
         type:String,
         require:true,
     },
-    Email:{
+    login:{
         type:String,
         require:true,
         unique: true,
@@ -27,6 +26,7 @@ const user = new Schema({
     lastName:{
         type:String,
     },
-    
+    Orders:[],
+
 })
 module.exports = mongoose.model('User',user)

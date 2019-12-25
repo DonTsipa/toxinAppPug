@@ -1,4 +1,13 @@
-module.exports ={
-    PORT: process.env.PORT || 8080,
-    MONGO_URL:'mongodb+srv://DonTsipa:454465@cluster0-dxq6w.mongodb.net/hotelRooms?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
-}
+
+const dotenv = require('dotenv');
+const path = require('path');
+
+const root = path.join.bind(this, __dirname);
+dotenv.config({ path: root('.env') });
+
+module.exports = {
+  PORT: process.env.PORT || 8080,
+  MONGO_URL: process.env.MONGO_URL,
+  SESSION_SECRET: process.env.SESSION_SECRET,
+  IS_PRODUCTION: process.env.NODE_ENV === 'production'
+};
