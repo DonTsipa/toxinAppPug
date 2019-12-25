@@ -4,7 +4,8 @@ var picker = new Lightpick({
     field: document.getElementById('datepicker_single'),
     singleDate: false,
     format:"DD.MM.YYYY",
-    autoclose:false,
+    autoclose:true,
+    hideOnBodyClick:true,
     footer:true,
     minDate: moment(),
     maxDate: moment().add(1,'year'),
@@ -24,15 +25,14 @@ var picker = new Lightpick({
         str += end ? end.format('Do MMMM YYYY') : '...';
       //  document.getElementById('result-3').innerHTML = str;
     }
-})
-//Костылище :D
-document.querySelectorAll('.datapicker__label').forEach(label=> label.onclick=function(){
-  console.log(date_moved);
-    var div_lightpick= document.querySelector('.lightpick');
+});
+datepicker_move = function(){
+  var div_lightpick= document.querySelector('.lightpick');
     div_lightpick.style.left = parseInt(div_lightpick.style.left) -16 + "px";
     div_lightpick.style.top = parseInt(div_lightpick.style.top) +15 + "px";
-    console.log(div_lightpick.style.left);
-    date_moved = true;
-    
+  }
+document.querySelectorAll('.datepicker__label').forEach(label=>{
+  label.addEventListener("click",datepicker_move)
 })
+
 };

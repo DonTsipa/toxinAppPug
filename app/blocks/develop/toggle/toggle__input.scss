@@ -1,0 +1,9 @@
+.toggle__input {
+    display: none;
+    &:checked+.toggle__checkbox{
+        &:after{
+            left:24px;
+        }
+        opacity:1;
+    }
+}

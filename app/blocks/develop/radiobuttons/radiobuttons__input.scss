@@ -1,0 +1,8 @@
+ .radiobuttons__input{
+    display: none;
+    &:checked+.radiobuttons__radio{
+        &:after{
+            display:block;
+        }
+    }
+}

@@ -9,3 +9,18 @@
     background:#fff;
     padding: 0px 7px 13px 15px;
 }
+.dropdown__full.dropdown__full_visible{
+    opacity:1;
+    top:44px;
+    z-index:10;
+}
+.dropdown__full{
+    height:160px;
+    position:absolute;
+    opacity: 0;
+    top:0%;
+    left:0;
+    z-index:-1;
+    width:320px;
+    transition: all .2s ease-in-out;
+}

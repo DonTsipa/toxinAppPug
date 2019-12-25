@@ -1,15 +1,32 @@
+//Global variables
 var boxes= document.querySelectorAll('.dropdown');
-clicked=false;
+var focus = undefined;
+
+
+//expand
+document.body.onclick = function (e) {
+    var target = e.target;
+    if(focus){
+        if(!focus.contains(target)){   
+            focus.querySelector('.dropdown__full').classList.remove('dropdown__full_visible');
+            focus = undefined;
+        }  
+    }
+}
+
 boxes.forEach(box =>{
-    expand= box.querySelector('.cards__input');
+    var expand= box.querySelector('.cards__input');
     expand.onclick = function(event){
-        console.log('click');
-        if(clicked){
-            box.querySelector('.dropdown__full').style="opacity:0;top:0%; z-index:-1;";
-            clicked=false;
-        } else{ 
-            box.querySelector('.dropdown__full').style="opacity:1; top:100%; z-index:10"
-            clicked=true;
+        dropdown__full = box.querySelector('.dropdown__full');
+        if(dropdown__full.classList.contains('dropdown__full_visible')){
+            dropdown__full.classList.remove('dropdown__full_visible');
+            focus = undefined;
+        } else{
+            if(focus){
+                focus.querySelector('.dropdown__full').classList.remove('dropdown__full_visible');
+            }
+            dropdown__full.classList.add('dropdown__full_visible')
+            focus = dropdown__full.parentElement;
         }        
     }
 });

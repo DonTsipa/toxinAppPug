@@ -17,11 +17,12 @@ module.exports = {
 
 	build: {
     	babel: true, // нужен ли транспайлер Babel для JS
-		imagemin: [ 'png', 'jpg' ],
-		sourcemaps: [ 'js', 'css' ],
-		autoprefixer: [ 'last 3 versions', 'ie 10', 'ie 11' ],
+		//imagemin: [ 'png', 'jpg' ],
 		bundles: [ 'css', 'js' ],
-		globalStyles: 'app/scss/vars.scss' 
+		autoprefixer: [ 'last 3 versions', 'ie 10', 'ie 11' ],
+		globalStyles: 'app/scss/vars.scss' ,
+		mainBundle: 'app',
+		mainLevel: 'develop'
 	},
 
 	autoCreate: {

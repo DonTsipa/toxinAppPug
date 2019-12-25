@@ -1,3 +1,8 @@
 .checkboxes__input{
     display: none;
+    &:checked+.checkboxes__checkbox{
+        &:after{
+            display:block;
+        }
+    }
 }
