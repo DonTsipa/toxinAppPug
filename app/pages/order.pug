@@ -1,13 +1,5 @@
-mixin checkbox(name,text,check)
-    label(class="checkboxes__label" for=name)
-        input(name=name class="checkboxes__input" check value = "true" checked = check type="checkbox" id=name)
-        label(class="checkboxes__checkbox" for=name)
-        if block
-            block
-        else
-            p(class="checkboxes__text")=text
 <!DOCTYPE html>
-//html(lang="en")
+html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -16,7 +8,7 @@ mixin checkbox(name,text,check)
         link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
         link(href="./styles/app.css" rel="stylesheet")
-        link(rel="stylesheet" type ="text/css" href=".././styles/search.min.css")
+        link(rel="stylesheet" type ="text/css" href=".././styles/order.min.css")
         link(rel="stylesheet" type ="text/css" href=".././styles/registration.min.css")
         link(rel="stylesheet" type ="text/css" href=".././styles/lightpick.css")
         title Order
@@ -26,19 +18,23 @@ mixin checkbox(name,text,check)
         main(class="main_theme-registration")
             form(action = "order" method= "POST")
                 div(class="cards cards_theme_registration")
-                    label(class="cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
-                        input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(DateFrom + ' - '+DateTo)  placeholder='ДД.ММ.ГГГГ')
+                    h2(class="cards__heading") Оплата заказа
+                    label(class="cards__input cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
+                        input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=orderDate  placeholder='ДД.ММ.ГГГГ')
                         p(class="cards__input-heading") даты пребывания в номере
-                        i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more     
-                    input(class="cards__input-text" type = "text" name="name" id="name" placeholder="имя" value = user.name.split('-'[0]))            
-                    input(class="cards__input-text" type = "text" name="lastName" id="lastName" placeholder="Фамилия" value = user.name.split('-'[1]))
-                    input(class="cards__input-text" type = "text" id="Email" name="Email" placeholder="Email" value = user.login)         
-                    
+                        i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more  
+                    div(class="cards__input")   
+                        input(class="cards__input-text" type = "text" name="name" id="name" placeholder="имя" value = user.name.split(' ')[0])      
+                    div(class="cards__input")      
+                        input(class=" cards__input-text" type = "text" name="lastName" id="lastName" placeholder="Фамилия" value = user.name.split(' ')[1])
+                    div(class="cards__input")
+                        input(class="cards__input-text" type = "text" id="Email" name="Email" placeholder="Email" value = user.login)         
+                    h2(class="cards__heading" align="center")=3*room.price + "Р"
                     button(type="submit" id = "search" class="cards__button cards__button_theme_filled")
                         p Оплатить
                         i(class="cards__material-icons material-icons md-24") arrow_forward
         include ../blocks/develop/footer/footer.pug 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js") 
     script(src="./scripts/lightpick.js") 
-    script(src="./scripts/index.min.js")                       
+    script(src="./scripts/order.min.js")                       
         <!-- BEMGO:scripts -->
