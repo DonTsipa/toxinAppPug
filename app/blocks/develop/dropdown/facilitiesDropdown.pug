@@ -1,5 +1,5 @@
 - var opacity = [0.25,0.25,0.25]
-- if(!facilities){facilities = {numberFacilities:"Удобства",bedrooms:0, beds:0,bathrooms:0}};
+- if(facilities == undefined){facilities = {numberFacilities:"Удобства",bedrooms:0, beds:0,bathrooms:0}};
 - if(facilities.bedrooms>0){opacity[0] = 1}
 - if(facilities.beds>0){opacity[1] = 1}
 - if(facilities.bathrooms>0){opacity[2] = 1}

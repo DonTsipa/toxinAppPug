@@ -1,7 +1,8 @@
+
 each room in correct
     -var n = 0;
-    div(class = "cards cards_theme_room")
-        div(class="roomcard__image")
+    div(class = "cards cards_theme_room"  id = "room"+room.number)
+        div(class="roomcard__image" style="background: url(./styles/img/roomcard_image-"+room.number +".png) no-repeat")
         div(class="roomcard__description")
             div(class="roomcard__textDiv")
                 p(class="roomcard__roomnumber") №

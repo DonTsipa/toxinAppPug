@@ -13,7 +13,7 @@ html(lang="en")
     body
         div(class="main-registration-background")
         include ../blocks/develop/header/header.pug
-        main(class="main_theme-registration")
+        main(class="login main_theme-registration")
             form(action="login" method="POST")
                 div(class="cards cards_theme_log-in")
                     h2(class="cards__heading") Войти
@@ -33,4 +33,5 @@ html(lang="en")
         include ../blocks/develop/footer/footer.pug
     script(src="./scripts/loginAjax.js")
     script(src="./scripts/log-in.min.js")
+    
 

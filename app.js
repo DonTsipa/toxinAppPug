@@ -5,6 +5,8 @@ const routes = require('./routes')
 const search = routes.search;
 const log_in = routes.log_in;
 const registration = routes.registration;
+const order = routes.order;
+
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 const jsonParser = bodyParser.json();
@@ -71,8 +73,7 @@ app.all('/search',search)
 app.all('/registration',urlencodedParser,registration)
 
 app.all('/login',jsonParser,log_in);
-
-
+app.all('/order',urlencodedParser,order)
 app.use(express.static(path.join(__dirname,'dist')));
 
   app.listen(config.PORT, () =>

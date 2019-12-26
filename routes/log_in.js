@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 
-router.get('/login',(req,res)=>{res.render('log-in.pug')})
+router.get('/login',(req,res)=>{if(!req.session){res.render('log-in.pug')}})
 
 
 router.post('/login',jsonParser, (req, res) => {
