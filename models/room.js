@@ -3,6 +3,14 @@ const Schema = mongoose.Schema;
 
 const room = new Schema({
     DisabledDate:[],
+    replies:{
+        type:Number,
+        require:true,
+    },
+    stars:{
+        type:Number,
+        require:true,
+    },
     number:{
         type:Number,
         require:true,

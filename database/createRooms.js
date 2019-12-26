@@ -2,6 +2,8 @@ const models = require('../models');
 Rooom = models.Room;
 createRooms = function(){
   Rooom.create({
+    replies:18,
+    stars:5,
     number:1,
     bedrooms:2,
     beds:2,
@@ -22,6 +24,8 @@ createRooms = function(){
   process.exit(1);
 });
 Rooom.create({
+  replies:10,
+  stars:3,
   number:2,
   bedrooms:3,
   beds:6,
@@ -42,6 +46,8 @@ console.log(e);
 process.exit(1);
 });
 Rooom.create({
+  replies:15,
+  stars:4,
   number:3,
   bedrooms:4,
   beds:4,
@@ -62,6 +68,8 @@ console.log(e);
 process.exit(1);
 });
 Rooom.create({
+  replies:17,
+  stars:5,
   number:4,
   bedrooms:1,
   beds:1,
@@ -82,6 +90,8 @@ console.log(e);
 process.exit(1);
 });
 Rooom.create({
+  replies:5,
+  stars:4,
   number:5,
   bedrooms:2,
   beds:4,
@@ -102,6 +112,8 @@ console.log(e);
 process.exit(1);
 });
 Rooom.create({
+  replies:14,
+  stars:2,
   number:6,
   bedrooms:3,
   beds:6,
@@ -122,6 +134,8 @@ console.log(e);
 process.exit(1);
 });
 Rooom.create({
+  replies:10,
+  stars:5,
   number:7,
   bedrooms:2,
   beds:4,
@@ -143,6 +157,8 @@ process.exit(1);
 });
 
   Rooom.create({
+    replies:20,
+    stars:5,
     number:8,
     bedrooms:2,
     beds:4,
@@ -162,6 +178,8 @@ process.exit(1);
   console.log(e);
   process.exit(1);
 });  Rooom.create({
+  replies:15,
+  stars:3,
   number:9,
   bedrooms:1,
   beds:2,
@@ -182,6 +200,8 @@ console.log(e);
 process.exit(1);
 });
 Rooom.create({
+  replies:12,
+  stars:2,
   number:10,
   bedrooms:3,
   beds:4,
@@ -202,6 +222,8 @@ console.log(e);
 process.exit(1);
 });
 Rooom.create({
+  replies:6,
+  stars:3,
   number:11,
   bedrooms:2,
   beds:2,
@@ -222,6 +244,8 @@ console.log(e);
 process.exit(1);
 });
 Rooom.create({
+  replies:22,
+  stars:3,
   number:12,
   bedrooms:2,
   beds:4,

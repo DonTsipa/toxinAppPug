@@ -1,6 +1,6 @@
 database = require('./database');
-findroom = require('./findroom');
+findRoom = require('./findroom');
 module.exports = {
     database,
-    findroom,
+    findRoom,
 }
