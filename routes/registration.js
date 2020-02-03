@@ -9,9 +9,12 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 const jsonParser = bodyParser.json();
 
 //get
-router.get('/registration',(req,res)=>{
-  res.render('registration.pug');
-});
+router.get('/registration',(req,res)=>{if(!req.session.userLogin){
+  res.render('registration.pug')
+}else{
+  res.redirect('/index');
+}
+})
 
 //отправка формы
 

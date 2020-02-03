@@ -33,8 +33,8 @@ submitButtonlogin.onclick = async function(e){
 
           errorBlock.style.display = "block";
           errorBlock.innerHTML =result.error;
-      }
+      }else{
       window.location.href = window.location.origin + '/index';
-
+      }
 }
 

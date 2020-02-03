@@ -29,16 +29,13 @@ router.post('/search',urlencodedParser,(req,res)=>{
   let babies = req.body.babies
   let priceMin = req.body.range__priceMin
   let priceMax = req.body.range__priceMax
-
   const id = req.session.userId;
   const name = req.session.Name;
   const login = req.session.userLogin;
-
   if(!numberFacilities)numberFacilities="Удобства";
   if(!bedrooms)bedrooms=0
   if(!beds)beds=0
   if(!bathrooms)bathrooms=0
-
   if(!numberGuests)numberGuests="Сколько гостей";
   if(!adults)adults=0
   if(!children)children=0
@@ -111,6 +108,5 @@ router.get('/search',(req,res)=>{
       facilities, range
     });
   });
-  res.render(path.join('search.pug'));
 });
   module.exports=router;

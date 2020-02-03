@@ -53,5 +53,8 @@ const room = new Schema({
     disabled_assistant:{
         type:Boolean
     },
+    luxe:{
+        type:Boolean
+    }
 })
 module.exports = mongoose.model('Room',room)

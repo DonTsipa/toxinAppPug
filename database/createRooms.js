@@ -1,35 +1,29 @@
 const models = require('../models');
-Rooom = models.Room;
-createRooms = function(){
-  Rooom.create({
-    replies:18,
-    stars:5,
-    number:1,
-    bedrooms:2,
-    beds:2,
-    price:5000,
-    bathrooms:1,
-    children:0,
-    babies:0,
-    smoking:true,
-    friends:true,
-    pets:true,
-    wide_coridor:true,
-    disabled_assistant:false,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-  console.error('Unable to connect to Add Room');
-  console.log(e);
-  process.exit(1);
-});
-Rooom.create({
-  replies:10,
-  stars:3,
-  number:2,
+Room = models.Room;
+rooms = [{
+  replies:145,
+  stars:5,
+  number:888,
+  bedrooms:2,
+  beds:2,
+  price:9990,
+  bathrooms:1,
+  children:0,
+  babies:0,
+  smoking:true,
+  friends:true,
+  pets:true,
+  wide_coridor:true,
+  disabled_assistant:false,
+  luxe:true,
+},
+{
+  replies:65,
+  stars:4,
+  number:840,
   bedrooms:3,
   beds:6,
-  price:8000,
+  price:9990,
   bathrooms:2,
   children:3,
   babies:1,
@@ -38,20 +32,14 @@ Rooom.create({
   pets:false,
   wide_coridor:false,
   disabled_assistant:false,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-Rooom.create({
-  replies:15,
-  stars:4,
-  number:3,
+},
+{
+  replies:35,
+  stars:3,
+  number:980,
   bedrooms:4,
   beds:4,
-  price:7000,
+  price:8500,
   bathrooms:1,
   children:2,
   babies:0,
@@ -60,20 +48,14 @@ Rooom.create({
   pets:true,
   wide_coridor:true,
   disabled_assistant:false,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-Rooom.create({
-  replies:17,
+},
+{
+  replies:19,
   stars:5,
-  number:4,
+  number:856,
   bedrooms:1,
   beds:1,
-  price:1000,
+  price:7300,
   bathrooms:1,
   children:0,
   babies:0,
@@ -82,20 +64,14 @@ Rooom.create({
   pets:true,
   wide_coridor:false,
   disabled_assistant:false,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-Rooom.create({
-  replies:5,
+},
+{
+  replies:44,
   stars:4,
-  number:5,
+  number:740,
   bedrooms:2,
   beds:4,
-  price:9000,
+  price:6600,
   bathrooms:2,
   children:1,
   babies:2,
@@ -104,20 +80,14 @@ Rooom.create({
   pets:false,
   wide_coridor:true,
   disabled_assistant:true,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-Rooom.create({
-  replies:14,
-  stars:2,
-  number:6,
+},
+{
+  replies:56,
+  stars:3,
+  number:982,
   bedrooms:3,
   beds:6,
-  price:15700,
+  price:5800,
   bathrooms:2,
   children:2,
   babies:2,
@@ -126,20 +96,14 @@ Rooom.create({
   pets:true,
   wide_coridor:true,
   disabled_assistant:true,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-Rooom.create({
-  replies:10,
+},
+{
+  replies:45,
   stars:5,
-  number:7,
+  number:678,
   bedrooms:2,
   beds:4,
-  price:6000,
+  price:5500,
   bathrooms:1,
   children:2,
   babies:0,
@@ -148,42 +112,30 @@ Rooom.create({
   pets:true,
   wide_coridor:false,
   disabled_assistant:false,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-
-  Rooom.create({
-    replies:20,
-    stars:5,
-    number:8,
-    bedrooms:2,
-    beds:4,
-    price:10000,
-    bathrooms:1,
-    children:2,
-    babies:0,
-    smoking:false,
-    friends:true,
-    pets:true,
-    wide_coridor:true,
-    disabled_assistant:false,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-  console.error('Unable to connect to Add Room');
-  console.log(e);
-  process.exit(1);
-});  Rooom.create({
-  replies:15,
+},
+{
+  replies:39,
+  stars:4,
+  number:450,
+  bedrooms:2,
+  beds:4,
+  price:5300,
+  bathrooms:1,
+  children:2,
+  babies:0,
+  smoking:false,
+  friends:true,
+  pets:true,
+  wide_coridor:true,
+  disabled_assistant:false,
+},
+{
+  replies:77,
   stars:3,
-  number:9,
+  number:350,
   bedrooms:1,
   beds:2,
-  price:3000,
+  price:5000,
   bathrooms:1,
   children:0,
   babies:0,
@@ -192,20 +144,14 @@ process.exit(1);
   pets:true,
   wide_coridor:true,
   disabled_assistant:true,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-Rooom.create({
-  replies:12,
-  stars:2,
-  number:10,
+},
+{
+  replies:25,
+  stars:5,
+  number:666,
   bedrooms:3,
   beds:4,
-  price:7000,
+  price:5000,
   bathrooms:2,
   children:0,
   babies:0,
@@ -214,20 +160,14 @@ Rooom.create({
   pets:true,
   wide_coridor:true,
   disabled_assistant:true,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-Rooom.create({
-  replies:6,
+},
+{
+  replies:15,
   stars:3,
-  number:11,
+  number:444,
   bedrooms:2,
   beds:2,
-  price:4000,
+  price:5000,
   bathrooms:1,
   children:0,
   babies:0,
@@ -236,20 +176,14 @@ Rooom.create({
   pets:false,
   wide_coridor:true,
   disabled_assistant:false,
-})
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
-});
-Rooom.create({
-  replies:22,
+},
+{
+  replies:55,
   stars:3,
-  number:12,
+  number:352,
   bedrooms:2,
   beds:4,
-  price:8000,
+  price:5000,
   bathrooms:2,
   children:2,
   babies:1,
@@ -258,12 +192,24 @@ Rooom.create({
   pets:true,
   wide_coridor:true,
   disabled_assistant:false,
+},
+]
+i=0;
+createRooms = function(room){
+  Room.create(room)
+  .then(addedRoom => {
+    if(i<rooms.length){
+      console.log(addedRoom.number);
+      i++;
+      createRooms(rooms[i]);
+  } else{
+    console.log("Done!");
+  }
 })
-.then(room => console.log(room.number))
-.catch((e) => {
-console.error('Unable to connect to Add Room');
-console.log(e);
-process.exit(1);
+  .catch((e) => {
+  console.error('Unable to connect to Add Room');
+  console.log(e);
+  process.exit(1);
 });
-}
+};
 module.exports = createRooms;

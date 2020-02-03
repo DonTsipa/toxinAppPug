@@ -80,6 +80,22 @@ app.use(express.static(path.join(__dirname,'dist')));
   console.log(`Example app listening on port ${config.PORT}!`)
 );
 
-//createRooms();
+/*createRooms({
+  replies:145,
+  stars:5,
+  number:888,
+  bedrooms:2,
+  beds:2,
+  price:9990,
+  bathrooms:1,
+  children:0,
+  babies:0,
+  smoking:true,
+  friends:true,
+  pets:true,
+  wide_coridor:true,
+  disabled_assistant:false,
+  luxe:true,
+});*/
 
   module.exports = app;

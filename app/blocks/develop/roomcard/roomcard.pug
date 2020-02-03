@@ -1,23 +1,29 @@
-
-each room in correct
-    -var n = 0;
-    div(class = "cards cards_theme_room"  id = "room"+room.number)
-        div(class="roomcard__image" style="background: url(./styles/img/roomcard_image-"+room.number +".png) no-repeat")
-        div(class="roomcard__description")
-            div(class="roomcard__textDiv")
-                p(class="roomcard__roomnumber") №
-                    span(class="roomcard__number")=room.number
-                p(class="roomcard__text")
-                    span(class="roomcard__number")=room.price + "Р "
-                    | в сутки
-            div(class="roomcard__rating")
-                div(class="roomcard__stars")                
-                    while n< room.stars
-                        i(class ="material-icons md-24") star 
-                        -n++;
-                    while n< 5
-                        i(class="material-icons md-24") star_border
-                        -n++;
-                p(class="roomcard__reply")
-                    span(class="roomcard__number")=room.replies + " "
-                    | Отзывов
+-var i = 0;
+-if(correct == undefined){correct=[{replies:145,stars:5,number:888,bedrooms:2,beds:2,price:9990,bathrooms:1, children:0,babies:0,smoking:true,friends:true, pets:true,wide_coridor:true,disabled_assistant:false,luxe:true}]}
+while i<correct.length
+    div(class = "rooms__show")
+        -var k = 0;
+        while (k< 12) && (i<correct.length)
+            -var n = 0;
+            div(class = "cards cards_theme_room"  id = "room"+correct[i].number)
+                div(class="roomcard__image" style="background: url(./styles/img/roomcard_image-"+correct[i].number +".png) no-repeat")
+                div(class="roomcard__description")
+                    div(class="roomcard__textDiv")
+                        p(class="roomcard__roomnumber") №
+                            span(class="roomcard__number")=correct[i].number
+                        p(class="roomcard__text")
+                            span(class="roomcard__number")=correct[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "Р "
+                            | в сутки
+                    div(class="roomcard__rating")
+                        div(class="roomcard__stars")                
+                            while n< correct[i].stars
+                                i(class ="material-icons md-24") star 
+                                -n++;
+                            while n< 5
+                                i(class="material-icons md-24") star_border
+                                -n++;
+                        p(class="roomcard__reply")
+                            span(class="roomcard__number")=correct[i].replies + " "
+                            | Отзывов
+            -i++;
+            -k++;

@@ -8,8 +8,12 @@ const router = express.Router();
 
 
 
-router.get('/login',(req,res)=>{if(!req.session){res.render('log-in.pug')}})
-
+router.get('/login',(req,res)=>{if(!req.session.userLogin){
+  res.render('log-in.pug')
+}else{
+  res.redirect('/index');
+}
+})
 
 router.post('/login',jsonParser, (req, res) => {
   const login = req.body.login;
