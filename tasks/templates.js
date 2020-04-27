@@ -154,7 +154,7 @@ module.exports = {
 		const cleanBlocks = require( this.paths.core( 'cleanBlocks' ) )
 		const autoCreate = require( this.paths.core( 'autoCreate' ) )
 		const onlyOnWatch = this.config.autoCreate.onlyOnWatch
-
+		console.log(this.config);
 		generateTree( this )
 
 		if ( process.env.CLEAN ) {
@@ -162,7 +162,10 @@ module.exports = {
 			return done()
 		}
 
-		if ( !onlyOnWatch || onlyOnWatch && this.store.watch ) autoCreate( this )
+		if ( !onlyOnWatch || onlyOnWatch && this.store.watch ){console.log("autoCreate"); autoCreate( this )}
+		else{
+			console.log("autoCreate failed"); 
+		}
 
 		this.store.depsChanged = false
 

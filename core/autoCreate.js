@@ -18,7 +18,6 @@ const fastMake = require( './fastMake' )
  */
 
 module.exports = function ( task ) {
-
 	const { paths, store, config, mainBundle } = task
 	const tree = store.tree[mainBundle]
 	const levels = config.autoCreate.levels

@@ -8,7 +8,7 @@ mixin checkbox(name,text,check)
             p(class="checkboxes__text")=text
 mixin pagenumber(number)
     a(class="pagination__button" href="#")
-        p(class="pagination__number")=number
+        p(class)=number
 <!DOCTYPE html>
 html(lang="en")
     head
@@ -49,10 +49,10 @@ html(lang="en")
                                 p(class="checkboxes__text checkboxes__text_theme-bold") Помощник для инвалидов
                                 p(class="checkboxes__text checkboxes__text_theme_light") На 1 этаже вас встретит специалист  и проводит до номера.
                     include ../blocks/develop/dropdown/facilitiesDropdown.pug
-                    //button(type="submit" id = "search" class="cards__button cards__button_theme_filled")
+                    button(type="submit" id = "search" class="cards__button cards__button_theme_filled")
                         p Найти
                         i(class="cards__material-icons material-icons md-24") arrow_forward
-                    div(class="checkboxes checkboxes_theme_dropdown")
+                    //div(class="checkboxes checkboxes_theme_dropdown")
                         div(class="checkboxes__heading")
                             p(class="checkboxes__heading-text") дополнительные удобства
                             i(class='cards__material-icons material-icons md-24') expand_more
@@ -69,7 +69,7 @@ html(lang="en")
                 h2.cards__heading Номера, которые мы для вас подобрали
                 div(class = "roomсards")
                     include ../blocks/develop/roomcard/roomcard.pug
-                div(class="pagination")
+                //div(class="pagination")
                     -var number = 1;
                     while (number<4)
                         +pagenumber(number)

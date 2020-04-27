@@ -147,7 +147,6 @@ try {
 	if ( !config.autoCreate ) config.autoCreate = {}
 
 	config.autoCreate = {
-		onlyOnWatch: true,
 		folders: [].concat( config.autoCreate.folders ).filter( el => !!el ),
 		files: [].concat( config.autoCreate.files ).filter( el => !!el ),
 		levels: [].concat( config.autoCreate.levels ).filter( el => !!el ),

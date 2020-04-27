@@ -7,7 +7,7 @@
 module.exports = {
 
 	app: {
-		name: 'Demo',
+		name: 'Hotel',
 	},
 	use: {
 		templates: '.pug',
@@ -26,11 +26,11 @@ module.exports = {
 	},
 
 	autoCreate: {
-		onlyOnWatch: false,
-		files: [ '.scss, .js' ],
-		levels: [ 'develop' ],
-		ignoreScript: [ /(_|--)[\w]/i  ], // игнорируем модификаторы при создании скриптов
-	},
+		onlyOnWatch:false, // создаем файлы только во время watch'а
+		files: [ '.scss', '.js' ], // у новых сущностей будет стиль и скрипт
+		levels: [ 'develop' ], // новые блоки создаются только на уровне develop
+		ignoreNodes: [ /__[\w]/i ], // все элементы будут проигнорированы
+	  },
 
 	dist: {
 		styles: 'styles',

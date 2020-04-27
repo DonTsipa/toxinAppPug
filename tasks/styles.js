@@ -141,7 +141,6 @@ module.exports = {
 	},
 
 	postcss ( bundle ) {
-
 		const postcss = require( 'gulp-postcss' )
 		const plugins = []
 
@@ -151,7 +150,7 @@ module.exports = {
 
 			require( 'autoprefixer' )({
 				remove: false,
-				browsers: this.config.build.autoprefixer
+				//browsers: this.config.build.autoprefixer
 			}),
 
 		)
