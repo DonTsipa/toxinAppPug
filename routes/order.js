@@ -17,6 +17,7 @@ router.post('/order',urlencodedParser,(req,res)=>{
 
 router.get('/order',urlencodedParser,(req,res)=>{
   let name ="";
+  id="";
   let login = "";
   let orderDate = req.session.Date;
   let RoomId = req.session.orderRoom;
