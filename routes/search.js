@@ -15,8 +15,7 @@ const router = express.Router();
 
 //получение формы
 
-router.post('/search',urlencodedParser,(req,res)=>{
-
+router.get('/search',urlencodedParser,(req,res)=>{
 //объект по дефолту, для дополнения "урезанного" полученного объекта с индекса
 
   let defaultobj = {
@@ -41,23 +40,26 @@ router.post('/search',urlencodedParser,(req,res)=>{
     numberGuests:"Сколько гостей"
   }
 
-//параметры сессии
+  //параметры сессии
 
   const id = req.session.userId;
   const name = req.session.Name;
   const login = req.session.userLogin;
 
 //дополняем (меняем прототип) req.body.
-
-  Object.setPrototypeOf(req.body,defaultobj)
-
+  Object.setPrototypeOf(req.query,defaultobj)
+  if(req.query.dateRange){
+  req.query.DateFrom = req.query.dateRange.split('-')[0].trim();
+  req.query.DateTo = req.query.dateRange.split('-')[1].trim();
+  }
 //находим подходящие комнаты и рендерим ответ
 
-  findRoom(req.body).then(correct =>{
+  findRoom(req.query).then(correct =>{
     res.render('search.pug',
     {
       correct,
-      filters:req.body,
+      filters:req.query,
+      link:'DateFrom='+req.query.DateFrom+'&DateTo='+req.query.DateTo,
       user:{
         id,
         login,
@@ -67,56 +69,4 @@ router.post('/search',urlencodedParser,(req,res)=>{
   });
 })
 
-// если переншли по Get
-
-router.get('/search',(req,res)=>{
-
-//дефолтный объект
-
-  let defaultobj = {
-    DateFrom: '',
-    DateTo: '',
-    smoking: false,
-    pets: false,
-    friends: false,
-    wide_coridor: false,
-    disabled_assistant: false,
-    numberFacilities: false,
-    bedrooms: 0,
-    beds:0,
-    bathrooms: 0,
-    numberGuests: 0,
-    adults: 0,
-    children: 0,
-    babies: 0,
-    priceMin: 0,
-    priceMax: 20000,
-    numberFacilities:"Удобства",
-    numberGuests:"Сколько гостей"
-  }
-
-
-  const id = req.session.userId;
-  const name = req.session.Name;
-  const login = req.session.userLogin;
-
-  //возвращаем все номера
-
-  models.Room.find({}).then(
-
-//рендерим все по дефолту
-
-    correct =>{
-    res.render('search.pug',
-    {
-      correct,
-      filters:defaultobj,
-      user:{
-        id,
-        login,
-        name
-      },
-    });
-  });
-});
-  module.exports=router;
+module.exports=router;

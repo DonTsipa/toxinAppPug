@@ -25,7 +25,7 @@ html(lang="en")
     body
         include ../blocks/develop/header/header.pug
         main(class="main_theme-search")
-            form(action = "search" method= "POST")
+            form(action = "search" method= "GET")
                 div(class="filters filters_theme-search")
                     label(class="cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
                         input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(filters.DateFrom + ' - '+filters.DateTo)  placeholder='ДД.ММ.ГГГГ')
