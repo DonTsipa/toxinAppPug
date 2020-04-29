@@ -16,17 +16,33 @@ router.get('/login',(req,res)=>{if(!req.session.userLogin){
 })
 
 router.post('/login',jsonParser, (req, res) => {
-  const login = req.body.login;
-  const password = req.body.password;
-  if (!login || !password) {
-    const fields = [];
-    if (!login) fields.push('login');
-    if (!password) fields.push('password');
+   
+const login = req.body.login;
+const password = req.body.password;
+
+//функция проверки полей на заполненность
+
+
+  let checkFields = (fields) =>{
+    let fieldsErr = [];
+    for(let prop in fields){
+      if (!fields[prop]){
+        fieldsErr.push(prop);
+        }
+    };
+    return fieldsErr;
+  }
+
+//Проверка полей на заполненность
+
+  let fieldsErr = checkFields(req.body);
+  
+  if(fieldsErr){
     res.json({
       ok: false,
-      error: 'Все поля должны быть заполнены!',
-      fields
-    });
+      error:'Все поля должны быть заполнены',
+      fields:fieldsErr,
+    }); 
   } else {
     models.User.findOne({login})
       .then(user => {

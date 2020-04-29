@@ -8,24 +8,23 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 const router = express.Router();
 
 router.get('/order',urlencodedParser,(req,res)=>{
-  id = '';
-  name='';
-  login='';
-  if(req.session.userId){
-  id = req.session.userId}
-  if(req.session.Name){
-  name = req.session.Name}
-  if(req.session.userLogin){
-  login = req.session.userLogin}
+  let user = {
+    id:req.session.userId,
+    name:req.session.Name,
+    login:req.session.userLogin
+  }
+  if(!req.session.userId){
+    user = {
+      id:'',
+      name:'',
+      login:'',
+    }
+  } 
   models.Room.findOne({number:req.query.RoomId}).then(room =>{
     res.render('order.pug',{
       orderDate:req.query.DateFrom+' - '+ req.query.DateTo,
       room,
-        user:{
-        id,
-        login,
-        name
-      },
+        user:user,
     })
   })
 });

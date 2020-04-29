@@ -41,7 +41,18 @@ router.get('/search',urlencodedParser,(req,res)=>{
   }
 
   //параметры сессии
-
+let user = {
+  id:req.session.userId,
+  name:req.session.Name,
+  login:req.session.userLogin
+}
+if(!req.session.userId){
+  user = {
+    id:'',
+    name:'',
+    login:'',
+  }
+} 
   const id = req.session.userId;
   const name = req.session.Name;
   const login = req.session.userLogin;
@@ -60,11 +71,7 @@ router.get('/search',urlencodedParser,(req,res)=>{
       correct,
       filters:req.query,
       link:'DateFrom='+req.query.DateFrom+'&DateTo='+req.query.DateTo,
-      user:{
-        id,
-        login,
-        name
-      },
+      user:user,
     });
   });
 })
