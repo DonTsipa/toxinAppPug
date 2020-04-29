@@ -28,23 +28,23 @@ html(lang="en")
             form(action = "search" method= "POST")
                 div(class="filters filters_theme-search")
                     label(class="cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
-                        input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(DateFrom + ' - '+DateTo)  placeholder='ДД.ММ.ГГГГ')
+                        input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(filters.DateFrom + ' - '+filters.DateTo)  placeholder='ДД.ММ.ГГГГ')
                         p(class="cards__input-heading") даты пребывания в отеле
                         i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more
                     include ../blocks/develop/dropdown/guestsDropdown.pug
                     include ../blocks/develop/range/range.pug
                     div(class="checkboxes" )
                         p(class="checkboxes__heading-text") Checkbox Buttons
-                        +checkbox("smoking","Можно курить",smoking)
-                        +checkbox("pets","Можно с питомцами",pets)
-                        +checkbox("friends","Можно пригласить гостей (до 10 человек)",friends)
+                        +checkbox("smoking","Можно курить",filters.smoking)
+                        +checkbox("pets","Можно с питомцами",filters.pets)
+                        +checkbox("friends","Можно пригласить гостей (до 10 человек)",filters.friends)
                     div(class="checkboxes")
                         p(class="checkboxes__heading-text") доступность
-                        +checkbox("wide_coridor","Широкий коридор",wide_coridor)
+                        +checkbox("wide_coridor","Широкий коридор",filters.wide_coridor)
                             div(class="checkboxes__text-with-description")
                                 p(class="checkboxes__text checkboxes__text_theme-bold") Широкий коридор
                                 p(class="checkboxes__text checkboxes__text_theme_light") Ширина коридоров в номере не менее 91 см.
-                        +checkbox("disabled_assistant","Помощник для инвалидов",disabled_assistant)
+                        +checkbox("disabled_assistant","Помощник для инвалидов",filters.disabled_assistant)
                             div(class="checkboxes__text-with-description")
                                 p(class="checkboxes__text checkboxes__text_theme-bold") Помощник для инвалидов
                                 p(class="checkboxes__text checkboxes__text_theme_light") На 1 этаже вас встретит специалист  и проводит до номера.
@@ -57,14 +57,14 @@ html(lang="en")
                             p(class="checkboxes__heading-text") дополнительные удобства
                             i(class='cards__material-icons material-icons md-24') expand_more
                         div(class="checkboxes__full")
-                            +checkbox("breakfast","Завтрак",breakfast)
-                            +checkbox("desk","Письменный стол",desk)
-                            +checkbox("feeding_chair","Стул для кормления",feeding_chair)
-                            +checkbox("baby_bed","Кроватка",baby_bed)
+                            +checkbox("breakfast","Завтрак",filters.breakfast)
+                            +checkbox("desk","Письменный стол",filters.desk)
+                            +checkbox("feeding_chair","Стул для кормления",filters.feeding_chair)
+                            +checkbox("baby_bed","Кроватка",filters.baby_bed)
                             +checkbox("television","Телевизор",television)
-                            +checkbox("shampoo","Шампунь",shampoo)
-                            +checkbox("television","Телевизор",television)
-                            +checkbox("shampoo","Шампунь",shampoo)
+                            +checkbox("shampoo","Шампунь",filters.shampoo)
+                            +checkbox("television","Телевизор",filters.television)
+                            +checkbox("shampoo","Шампунь",filters.shampoo)
             div(class="rooms")
                 h2.cards__heading Номера, которые мы для вас подобрали
                 div(class = "roomсards")

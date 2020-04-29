@@ -2,14 +2,22 @@ var express = require('express');
 var app = require('../app');
 const bcrypt = require('bcrypt-nodejs');
 const models = require('../models');
+
+
+//проверка Email
+
 const pattern =  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const router = express.Router();
 const bodyParser = require("body-parser");
-const urlencodedParser = bodyParser.urlencoded({extended: false});
+
+//парсить будем Json
+
 const jsonParser = bodyParser.json();
 
 //get
-router.get('/registration',(req,res)=>{if(!req.session.userLogin){
+
+router.get('/registration',(req,res)=>{
+  if(!req.session.userLogin){
   res.render('registration.pug')
 }else{
   res.redirect('/index');
@@ -19,33 +27,44 @@ router.get('/registration',(req,res)=>{if(!req.session.userLogin){
 //отправка формы
 
 router.post('/registration',jsonParser,(req,res)=>{
-  const name = req.body.name;
-  const sex = req.body.sex;
-  const lastName = req.body.lastName;
-  const birthdate = req.body.birthdate;
+ let checkFields = (fields) =>{
+    let fieldsErr = [];
+    for(let prop in fields){
+      if (!fields[prop]){
+        fieldsErr.push(prop);
+        }
+    };
+    return fieldsErr;
+  }
+  
   const Email = req.body.Email;
   const password = req.body.password;
-  let fieldsErr = [];
-  if (!Email || !password || !name || !sex || !lastName || !birthdate) {
-    if(!Email)fieldsErr.push("Email");
-    if(!password)fieldsErr.push("password") 
-    if(!name)fieldsErr.push("name");
-    if(!sex)fieldsErr.push("sex");
-    if(!lastName)fieldsErr.push("lastName");
-    if(!birthdate)fieldsErr.push("birthdate");
+
+  //проверка на заполненность полей
+
+  let fieldsErr = checkFields(req.body);
+  if(fieldsErr){
     res.json({
       ok: false,
-      error: 'Все поля должны быть заполнены',
+      error:'Все поля должны быть заполнены',
       fields:fieldsErr,
     });
-  } else if (!pattern.test(Email)) {
+  } 
+
+  //проверка на верность email
+
+  else if (!pattern.test(Email)) {
     fieldsErr.push("Email");
     res.json({
       ok: false,
       error: 'Введите корректный Email',
       fields:fieldsErr,
     });
-  }else if(password.length<5){
+  }
+
+    //проверка на верность пароля
+
+  else if(password.length<5){
     fieldsErr.push("password");
     res.json({
       ok: false,
@@ -53,8 +72,17 @@ router.post('/registration',jsonParser,(req,res)=>{
       fields:fieldsErr,
     })
   }
+
+  //в случае верных полей
+
     else {
+
+    // поиск юзера с таким же логином
+
     models.User.findOne({login: Email}).then(user => {
+
+      // если такого юзера не обнаружено - создаем
+
       if (!user) {
         bcrypt.hash(password, null, null, (err, hash) => {
           models.User.create({
@@ -65,6 +93,9 @@ router.post('/registration',jsonParser,(req,res)=>{
             birthdate,
             lastName
           })
+
+          //начинаем сессию с новым пользователем
+          
             .then(user => {
               req.session.Name = user.name + " " + user.lastName;
               req.session.userId = user.id;
@@ -81,7 +112,12 @@ router.post('/registration',jsonParser,(req,res)=>{
               });
             });
         });
-      } else {
+      }
+
+      //Если email занят
+
+       else 
+       {
         res.json({
           ok: false,
           error: 'Имя занято!',

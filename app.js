@@ -16,12 +16,17 @@ const MongoStore = require('connect-mongo')(session);
 const createRooms = require('./database/createRooms')
 const app = express();
 
+//рендер старниц
 
 app.set("views","app/pages");
+
+//шаблонизатор
+
 app.set('view engine', 'pug');
 
 
 //database
+
 mongoose.Promise = global.Promise;
 mongoose.set('debug', config.IS_PRODUCTION);
 mongoose.connection
@@ -56,24 +61,27 @@ app.use(
       login
     }})
   });
-app.all('/index',function(req,res){
-  const id = req.session.userId;
-  const name = req.session.Name;
-  const login = req.session.userLogin;
-  console.log(id, name, login);
-  res.render('index.pug', {
-    user:{
-    name,
-    id,
-    login
-  }})
-});
 
-app.all('/search',search)
-app.all('/registration',urlencodedParser,registration)
+  app.all('/index',function(req,res){
+    const id = req.session.userId;
+    const name = req.session.Name;
+    const login = req.session.userLogin;
+    console.log(id, name, login);
+    res.render('index.pug', {
+      user:{
+      name,
+      id,
+      login
+    }})
+
+app.all('/search',search);
+
+app.all('/registration',urlencodedParser,registration);
 
 app.all('/login',jsonParser,log_in);
-app.all('/order',urlencodedParser,order)
+
+app.all('/order',urlencodedParser,order);
+
 app.use(express.static(path.join(__dirname,'dist')));
 
   app.listen(config.PORT, () =>

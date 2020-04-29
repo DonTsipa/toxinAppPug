@@ -22,11 +22,11 @@ html(lang="en")
                     div(class="cards__date-div input-group input-daterange")
                         label(for="date-from" class="cards__input cards__date-label")
                             p(class="cards__input-heading") Прибытие
-                            input(name="indexDatefrom" id="date-from" type="text" class=" cards__date-input" data-multiple-dates-separator=" - " readonly placeholder='ДД.ММ.ГГГГ')
+                            input(name="DateFrom" id="date-from" type="text" class=" cards__date-input" data-multiple-dates-separator=" - " readonly placeholder='ДД.ММ.ГГГГ')
                             i(class=' cards__material-icons material-icons md-24') expand_more
                         label(for="date-to" class="cards__input cards__date-label")
                             p(class="cards__input-heading") Выезд
-                            input(name="indexDateto" id="date-to" type="text" class="cards__date-input" data-multiple-dates-separator=" - "  readonly placeholder='ДД.ММ.ГГГГ')
+                            input(name="DateTo" id="date-to" type="text" class="cards__date-input" data-multiple-dates-separator=" - "  readonly placeholder='ДД.ММ.ГГГГ')
                             i(class='cards__material-icons material-icons md-24') expand_more
                     include ../blocks/develop/dropdown/guestsDropdown.pug
                     button(type="submit" class="cards__button cards__button_theme_filled")

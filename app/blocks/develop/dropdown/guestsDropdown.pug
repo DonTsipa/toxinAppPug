@@ -1,13 +1,29 @@
 - var opacity = [0.25,0.25,0.25]
-- if(!guests){guests = {numberGuests:"Сколько гостей",adults:0, children:0,babies:0}};
-
-- if(guests.adults>0){opacity[0] = 1}
-- if(guests.children>0){opacity[1] = 1}
-- if(guests.babies>0){opacity[2] = 1}
+- if(!filters){filters = {
+-    DateFrom: '',
+-    DateTo: '',
+-    smoking: false,
+-    pets: false,
+-    friends: false,
+-    wide_coridor: false,
+-    disabled_assistant: false,
+-    numberFacilities: false,
+-    bedrooms: 0,
+-    beds:0,
+-    bathrooms: 0,
+-    numberGuests: 0,
+-    adults: 0,
+-    children: 0,
+-    babies: 0,
+-    priceMin: 0,
+-    priceMax: 20000,
+-    numberFacilities:"Удобства",
+-    numberGuests:"Сколько гостей"
+-  }}
 div(class="dropdown")
     div(class="cards__input")
         p(class="cards__input-heading") Гости
-        input(class="cards__input-text" readonly type="text" name="numberGuests" id="numberGuests" value=guests.numberGuests)
+        input(class="cards__input-text" readonly type="text" name="numberGuests" id="numberGuests" value=filters.numberGuests)
         i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more
     div(class="dropdown__full")
         div(class="dropdown__options")
@@ -15,19 +31,19 @@ div(class="dropdown")
                 p(class="dropdown__text") Взрослые
                 div(class='dropdown__buttons')
                     div(class='dropdown__button dropdown__button_less' style=("opacity:"+opacity[0]))
-                    input(type="number" class="dropdown__input" value=guests.adults readonly id = "adults" name="adults")
+                    input(type="number" class="dropdown__input" value=filters.adults readonly id = "adults" name="adults")
                     div(class='dropdown__button dropdown__button_more')
             div(class="dropdown__option")
                 p(class="dropdown__text") дети
                 div(class='dropdown__buttons')
                     div(class='dropdown__button dropdown__button_less' style=("opacity:"+opacity[1]))
-                    input(type="number" class="dropdown__input" value=guests.children readonly id = "children" name="children")
+                    input(type="number" class="dropdown__input" value=filters.children readonly id = "children" name="children")
                     div(class='dropdown__button dropdown__button_more')
             div(class="dropdown__option")
                 p(class="dropdown__text") младенцы
                 div(class='dropdown__buttons')
                     div(class='dropdown__button dropdown__button_less' style=("opacity:"+opacity[2]))
-                    input(type="number" class="dropdown__input" value=guests.babies readonly id = "babies" name="babies")
+                    input(type="number" class="dropdown__input" value=filters.babies readonly id = "babies" name="babies")
                     div(class='dropdown__button dropdown__button_more')
         div(class="dropdown__footer")
             p(class="dropdown__action dropdown__reset") очистить
