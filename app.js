@@ -73,6 +73,7 @@ app.use(
       id,
       login
     }})
+  });
 
 app.all('/search',search);
 
