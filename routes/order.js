@@ -1,7 +1,6 @@
 var express = require('express');
 var app = require('../app')
 const models = require('../models');
-const bcrypt = require('bcrypt-nodejs');
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
