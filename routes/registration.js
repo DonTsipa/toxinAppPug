@@ -42,8 +42,8 @@ router.post('/registration',jsonParser,(req,res)=>{
 
   //проверка на заполненность полей
 
-  let fieldsErr = checkFields(req.body);
-  if(fieldsErr){
+  const fieldsErr = checkFields(req.body);
+  if(fieldsErr.length){
     res.json({
       ok: false,
       error:'Все поля должны быть заполнены',
@@ -84,6 +84,12 @@ router.post('/registration',jsonParser,(req,res)=>{
       // если такого юзера не обнаружено - создаем
 
       if (!user) {
+        const {
+          name,
+          sex,
+          birthdate,
+          lastName
+        } = req.body
         bcrypt.hash(password, null, null, (err, hash) => {
           models.User.create({
             name,

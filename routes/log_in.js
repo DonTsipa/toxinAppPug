@@ -37,7 +37,7 @@ const password = req.body.password;
 
   let fieldsErr = checkFields(req.body);
   
-  if(fieldsErr){
+  if (fieldsErr.length){
     res.json({
       ok: false,
       error:'Все поля должны быть заполнены',
@@ -47,10 +47,9 @@ const password = req.body.password;
     models.User.findOne({login})
       .then(user => {
         if (!user) {
-          console.log("Нет такокго логина")
           res.json({
             ok: false,
-            error: 'Логин и пароль неверны!',
+            error: 'Такого логина нет!',
             fields: ['login', 'password']
           });
         } else {
@@ -66,8 +65,8 @@ const password = req.body.password;
               req.session.userId = user.id;
               req.session.userLogin = user.login;
               res.json({
-                ok:true,
-              });
+                ok: true,
+              })
             }
           });
         }
@@ -80,5 +79,13 @@ const password = req.body.password;
         });
       });
     }
-  });
+});
+router.all('/logout', function (req, res) {
+  // Удалить сессию
+  if (req.session) {
+    req.session.destroy(() => console.log('You exited!'));
+  }
+  res.redirect('/index');
+});
+
 module.exports = router;

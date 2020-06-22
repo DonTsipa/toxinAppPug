@@ -79,7 +79,7 @@ app.all('/search',search);
 
 app.all('/registration',urlencodedParser,registration);
 
-app.all('/login',jsonParser,log_in);
+app.all(['/login','/logout'],jsonParser,log_in);
 
 app.all('/order',urlencodedParser,order);
 
