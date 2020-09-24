@@ -1,3 +1,4 @@
+- if(!filters){filters = { DateFrom: '', DateTo: '', smoking: false, pets: false, friends: false, wide_coridor: false, disabled_assistant: false, numberFacilities: false, bedrooms: 0, beds:0, bathrooms: 0, numberGuests: 0, adults: 0, children: 0, babies: 0, priceMin: 0, priceMax: 20000, numberFacilities:"Удобства",  numberGuests:"Сколько гостей"  }}
 mixin checkbox(name,text,check)
     label(class="checkboxes__label" for=name)
         input(name=name class="checkboxes__input" value = "true" checked = check type="checkbox" id=name)
@@ -7,21 +8,22 @@ mixin checkbox(name,text,check)
         else
             p(class="checkboxes__text")=text
 mixin pagenumber(number)
-    a(class="pagination__button" href="#")
-        p(class)=number
+    div(class="pagination__button")
+        span(class="pagination__number")=number
 <!DOCTYPE html>
 html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge") 
+        link( rel="shortcut icon" href="./favicons/favicon.ico" type="image/x-icon")
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
         link(href="./styles/app.css" rel="stylesheet")
         link(rel="stylesheet" type ="text/css" href="./styles/search.min.css")
         link(rel="stylesheet" type ="text/css" href="./styles/lightpick.css")
-        title Search
+        title Toxin
     body
         include ../blocks/develop/header/header.pug
         main(class="main_theme-search")
@@ -69,13 +71,16 @@ html(lang="en")
                 h2.cards__heading Номера, которые мы для вас подобрали
                 div(class = "roomсards")
                     include ../blocks/develop/roomcard/roomcard.pug
-                //div(class="pagination")
-                    -var number = 1;
+                div(class="pagination")
+                    -let number = 1;
                     while (number<4)
                         +pagenumber(number)
                         -number++;
+                    +pagenumber('...')
+                    +pagenumber(15)
+                    div(class="pagination__button pagination__button_next")
+                        i(class="material-icons md-24") arrow_forward
         include ../blocks/develop/footer/footer.pug    
-    script(src="./scripts/orderRoom.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js")
     script(src="./scripts/lightpick.js")
     script(src="./scripts/nouislider.js")

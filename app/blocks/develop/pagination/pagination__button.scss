@@ -1,1 +1,24 @@
-.pagination__button {color:#000}
+.pagination__button{
+  width:40px;
+  height:40px;
+  color:$Dark-Shade50;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pagination__button_active {
+  color:#fff;
+  border-radius: 50%;
+  background: $Gradient;
+  border:none;
+}
+
+.pagination__button_next {
+  color:#fff;
+  border-radius: 50%;
+  background: $GreenGradient;
+  border:none;
+}

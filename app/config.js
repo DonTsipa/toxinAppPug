@@ -58,7 +58,7 @@ module.exports = {
 	},
 	addContent: {
 		scss: '.[name] {}', 
-	  },
+	},
 
 }
 
