@@ -1,8 +1,8 @@
 {
-  "name": "BEMGO",
-  "description": "Quick start of developing projects using Gulp build system and BEM methodology.",
+  "name": "toxin-app",
+  "description": "Test Fullstack Project",
   "version": "1.0.0",
-  "author": "Oleg Krylov",
+  "author": "Dmitry Matveev",
   "license": "MIT",
   "main": "gulpfile.js",
   "repository": {
