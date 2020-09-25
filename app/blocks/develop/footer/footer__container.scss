@@ -5,3 +5,9 @@
     align-items: flex-start;
     text-align:left;
 }
+
+@media all and (max-width: 900px) {
+    .footer__container {
+       margin-top: 20px;
+    }
+}

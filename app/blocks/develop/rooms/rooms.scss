@@ -1,6 +1,22 @@
 .rooms {
-    float:right;
-    width:calc(100% - 465px);
-    padding-top:30px;
-    padding-right:120px;
+    float: right;
+    width: calc(100% - 465px);
+    padding-top: 30px;
+    padding-right: 120px;
+}
+
+@media all and (max-width:900px) {
+    .rooms {
+        width: 100%;
+        text-align: center;
+        padding-top: 30px;
+        padding-right: 0;
+        opacity:1;
+        transition: opacity ease-in-out .4s;
+    }
+}
+
+.rooms_disable {
+    opacity:0;
+    overflow:hidden;
 }

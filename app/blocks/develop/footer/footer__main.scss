@@ -7,3 +7,18 @@
     justify-content: space-between;
     align-items: flex-start;
 }
+@media all and (max-width: 1200px) {
+    .footer__main {
+        padding:20px 40px;
+    }
+}
+@media all and (max-width: 900px) {
+    .footer__main {
+       flex-flow: column;
+       height:auto;
+       flex-flow: row;
+       flex-wrap: wrap;
+    }
+}
+
+

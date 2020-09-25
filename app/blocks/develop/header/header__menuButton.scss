@@ -1,0 +1,18 @@
+.header__menuButton {
+  display: none;
+  position: absolute;
+  right: 20px;
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  cursor: pointer;
+  width:20px;
+  height:20px;
+}
+
+
+
+@media all and (max-width: 1200px) {
+  .header__menuButton {
+    display: block;
+  }
+}

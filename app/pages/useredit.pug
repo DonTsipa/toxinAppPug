@@ -5,20 +5,21 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge") 
+        link( rel="shortcut icon" href="./favicons/favicon.ico" type="image/x-icon")
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
         link(href="./styles/app.css" rel="stylesheet")
         link(rel="stylesheet" href="./styles/search.min.css")
         link(rel="stylesheet" href="./styles/lightpick.css")
-        title Edit
+        title Toxin
     body
         div(class="main-registration-background")
         include ../blocks/develop/header/header.pug
         main(class="main_theme-registration")
             form(action="edit" method="POST")
                 div(class="cards cards_theme_registration")
-                    h2(class="cards__heading") Личный кабинет
+                    h2(class="cards__heading") Данные пользователя
                     div(class="registration__div")
                         div(class="cards__input")
                             input(class="cards__input-text" type = "text" name="name" id="name" value=user.name)

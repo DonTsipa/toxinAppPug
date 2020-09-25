@@ -1,0 +1,13 @@
+.filters__item{
+
+}
+
+
+@media all and (max-width: 1200px) {
+  .filters__item {
+      width:100%;
+      .dropdown__full{
+        width:100%;
+      }
+  }
+}

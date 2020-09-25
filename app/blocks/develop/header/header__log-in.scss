@@ -2,3 +2,10 @@
     flex-basis:87px;
     height: 32px; 
 }
+
+@media all and (max-width: 1200px) {
+    .header .header__log-in{
+        flex-basis:auto;
+        padding:10px;
+    }
+ }

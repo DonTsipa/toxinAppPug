@@ -7,8 +7,8 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 const jsonParser = bodyParser.json();
-router.get('/useredit',(req,res)=>{if(!req.session.userLogin){
-    res.render('useredit.pug')
+router.get('/',(req,res)=>{if(!req.session.userLogin){
+    res.render('useredit')
   }else{
     res.redirect('/index');
   }

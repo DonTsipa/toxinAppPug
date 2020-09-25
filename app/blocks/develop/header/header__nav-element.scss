@@ -12,3 +12,10 @@
 	line-height: 17px;
     float:right;
 }
+
+@media all and (max-width: 1200px) {
+	.header__nav-element{
+        margin-bottom: 0px;
+        margin-top: 13px;
+       }
+ }

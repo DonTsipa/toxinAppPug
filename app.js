@@ -2,14 +2,14 @@ var express = require('express');
 const mongoose = require('mongoose');
 const path=require('path');
 const routes = require('./routes')
-const search = routes.search;
-const log_in = routes.log_in;
-const registration = routes.registration;
-const order = routes.order;
-
+const {
+  indexRouter,
+  order,
+  registration,
+  login,
+  search,
+} = routes;
 const bodyParser = require("body-parser");
-const urlencodedParser = bodyParser.urlencoded({extended: false});
-const jsonParser = bodyParser.json();
 const session = require('express-session');
 const config = require('./config')
 const MongoStore = require('connect-mongo')(session);
@@ -27,17 +27,14 @@ app.set('view engine', 'pug');
 
 //database
 
-mongoose.Promise = global.Promise;
-mongoose.set('debug', config.IS_PRODUCTION);
-mongoose.connection
-  .on('error', error => console.log(error))
-  .on('close', () => console.log('Database connection closed.'))
-  .once('open', () => {
-    const info = mongoose.connections[0];
-    console.log(`Connected to ${info.host}:${info.port}/${info.name}`);
-  });
-  mongoose.connect(config.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopology: true }, function(err,db){});
-
+mongoose.connect(
+  config.MONGO_URL,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+).then(() => {
+  console.log('MongoDB connected successfully!');
+}).catch((err) => {
+  console.log(err);
+});
 
 app.use(
     session({
@@ -48,63 +45,35 @@ app.use(
         mongooseConnection: mongoose.connection
       })
     })
-  );
-
-  app.all('/',function(req,res){
-    const id = req.session.userId;
-    const name = req.session.Name;
-    const login = req.session.userLogin;
-    res.render('index.pug', {
-      user:{
-      name,
-      id,
-      login
-    }})
-  });
-
-  app.all('/index',function(req,res){
-    const id = req.session.userId;
-    const name = req.session.Name;
-    const login = req.session.userLogin;
-    console.log(id, name, login);
-    res.render('index.pug', {
-      user:{
-      name,
-      id,
-      login
-    }})
-  });
-
-app.all('/search',search);
-
-app.all('/registration',urlencodedParser,registration);
-
-app.all(['/login','/logout'],jsonParser,log_in);
-
-app.all('/order',urlencodedParser,order);
-
-app.use(express.static(path.join(__dirname,'dist')));
-
-  app.listen(config.PORT, () =>
-  console.log(`Example app listening on port ${config.PORT}!`)
 );
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'dist')));
 
-/*createRooms({
-  replies:145,
-  stars:5,
-  number:888,
-  bedrooms:2,
-  beds:2,
-  price:9990,
-  bathrooms:1,
-  children:0,
-  babies:0,
-  smoking:true,
-  friends:true,
-  pets:true,
-  wide_coridor:true,
-  disabled_assistant:false,
-  luxe:true,
-});*/
+
+app.use('/search', search);
+app.use('/registration', registration);
+app.use(['/login', '/logout'], login);
+app.use('/order', order);
+app.use(['/index', '/'], indexRouter);
+
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+/*createRooms();*/
 
   module.exports = app;

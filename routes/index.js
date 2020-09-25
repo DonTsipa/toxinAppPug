@@ -1,11 +1,12 @@
 registration = require('./registration');
-log_in = require('./log_in');
+login = require('./login');
 search = require('./search');
 order = require('./order');
-
+indexRouter = require('./indexRouter')
 module.exports = {
     registration,
-    log_in,
+    login,
     search,
     order,
+    indexRouter,
 }
