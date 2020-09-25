@@ -1,3 +1,6 @@
 .roomcard__images{
   position: relative;
+  transition: right ease-in-out .5s;
+  display: block;
+  right: 0;
 }

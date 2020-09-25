@@ -55,6 +55,9 @@ const room = new Schema({
     },
     luxe:{
         type:Boolean
+    },
+    images: {
+        type: [String],
     }
 })
 module.exports = mongoose.model('Room',room)
