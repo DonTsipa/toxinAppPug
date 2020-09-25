@@ -1,8 +1,14 @@
-.cards_theme-index{
+.cards_theme-index {
     position: absolute;
     width: 380px;
     height: 374px;
     left: 140px;
     top: 140px;
     z-index: 0;
+}
+
+@media all and (max-width: 900px) {
+    .cards_theme-index {
+        left:calc(50% - 190px);
+    }
 }

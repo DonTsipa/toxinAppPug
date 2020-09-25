@@ -2,3 +2,11 @@
     flex-basis: 196px;;
     height: 34px;
 }
+
+
+@media all and (max-width: 1200px) {
+    .header .header__registration{
+        flex-basis:auto;
+        padding:10px;
+    }
+ }

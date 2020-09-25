@@ -20,7 +20,7 @@ html(lang="en")
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
-        link(href="./styles/app.css" rel="stylesheet")
+        link(rel="stylesheet" href="./fonts/font-awesome/css/all.min.css")
         link(rel="stylesheet" type ="text/css" href="./styles/search.min.css")
         link(rel="stylesheet" type ="text/css" href="./styles/lightpick.css")
         title Toxin
@@ -29,29 +29,32 @@ html(lang="en")
         main(class="main_theme-search")
             form(action = "search" method= "GET")
                 div(class="filters filters_theme-search")
-                    label(class="cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
+                    label(class="filters__item cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
                         input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(filters.DateFrom + ' - '+filters.DateTo)  placeholder='ДД.ММ.ГГГГ')
                         p(class="cards__input-heading") даты пребывания в отеле
                         i(class='cards__material-icons material-icons md-24 dropdown__expand') expand_more
-                    include ../blocks/develop/dropdown/guestsDropdown.pug
-                    include ../blocks/develop/range/range.pug
-                    div(class="checkboxes" )
+                    .filters__item
+                        include ../blocks/develop/dropdown/guestsDropdown.pug
+                    .filters__item
+                        include ../blocks/develop/range/range.pug
+                    div(class="checkboxes filters__item" )
                         p(class="checkboxes__heading-text") Checkbox Buttons
                         +checkbox("smoking","Можно курить",filters.smoking)
                         +checkbox("pets","Можно с питомцами",filters.pets)
                         +checkbox("friends","Можно пригласить гостей (до 10 человек)",filters.friends)
-                    div(class="checkboxes")
+                    div(class="checkboxes filters__item")
                         p(class="checkboxes__heading-text") доступность
                         +checkbox("wide_coridor","Широкий коридор",filters.wide_coridor)
                             div(class="checkboxes__text-with-description")
                                 p(class="checkboxes__text checkboxes__text_theme-bold") Широкий коридор
                                 p(class="checkboxes__text checkboxes__text_theme_light") Ширина коридоров в номере не менее 91 см.
                         +checkbox("disabled_assistant","Помощник для инвалидов",filters.disabled_assistant)
-                            div(class="checkboxes__text-with-description")
+                            div(class="checkboxes__text-with-description" )
                                 p(class="checkboxes__text checkboxes__text_theme-bold") Помощник для инвалидов
                                 p(class="checkboxes__text checkboxes__text_theme_light") На 1 этаже вас встретит специалист  и проводит до номера.
-                    include ../blocks/develop/dropdown/facilitiesDropdown.pug
-                    button(type="submit" id = "search" class="cards__button cards__button_theme_filled")
+                    .filters__item
+                        include ../blocks/develop/dropdown/facilitiesDropdown.pug
+                    button(type="submit" id = "search" class="filters__item cards__button cards__button_theme_filled")
                         p Найти
                         i(class="cards__material-icons material-icons md-24") arrow_forward
                     //div(class="checkboxes checkboxes_theme_dropdown")

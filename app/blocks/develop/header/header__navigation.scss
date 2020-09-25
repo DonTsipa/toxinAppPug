@@ -1,10 +1,32 @@
-.header__navigation{
-   position:relative;
-   display:flex;
+.header__navigation {
+   position: relative;
+   display: flex;
    flex-flow: row nowrap;
    justify-content: space-between;
-   float:right;
-   align-items: center;   
+   float: right;
+   align-items: center;
    flex-basis: 769px;
-   z-index:1;
+   z-index: 1;
+   transition: all ease-in-out .2s;
+}
+
+@media all and (max-width: 1200px) {
+   .header__navigation {
+      max-height:0;
+      padding:0;
+      overflow: hidden;
+      flex-flow: column;
+      flex-basis: auto;
+      position: absolute;
+      top: 80px;
+      background: #fff;
+      right: 10px;
+      align-items: baseline;
+      border-radius: 8px;
+      box-shadow: 0 5px 8px rgba(0, 0, 0, .2);
+   }
+   .header__navigation_active {
+      padding:15px;
+      max-height:280px;
+   }
 }
