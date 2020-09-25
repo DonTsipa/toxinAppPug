@@ -14,10 +14,11 @@
   },
   "homepage": "https://github.com/werty1001/bemgo",
   "scripts": {
+    "start": "env-cmd -f ./.env  node ./bin/www",
     "dev": "env-cmd -f ./.env  nodemon ./bin/www",
     "test": "echo \"Error: no test specified\"",
     "task": "gulp",
-    "start": "cross-env WATCH=true gulp",
+    "startGulp": "cross-env WATCH=true gulp",
     "clean": "cross-env CLEAN=true gulp compile:templates",
     "do": "cross-env NODE_ENV=production gulp",
     "add": "node ./core/.add",
