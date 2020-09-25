@@ -5,7 +5,20 @@
     padding-right:60px;
     float:left;
     padding-top:50px;
+    transition:all .2s ease-in-out;
     .dropdown{
         margin-top: 10px;
     }
 }
+
+@media all and (max-width: 900px) {
+    .filters_theme-search {
+        width:0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .filters_theme-search_active {
+        width:100vw;
+        padding: 40px 50px;
+    }
+  }

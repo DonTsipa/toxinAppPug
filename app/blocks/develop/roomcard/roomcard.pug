@@ -9,29 +9,28 @@ mixin slider(images)
             each image in images
                 div.roomcard__paginationButton
 while i<rooms.length
-    div(class = "rooms__show")
-        -var k = 0;
-        while (k< 12) && (i<rooms.length)
-            -let n = 0;
-            div(class = "cards roomcard cards_theme_room"  id = rooms[i].number)
-                +slider(rooms[i].images)
-                div(class="roomcard__description")
-                    div(class="roomcard__textDiv")
-                        p(class="roomcard__roomnumber") №
-                            span(class="roomcard__number")=rooms[i].number
-                        p(class="roomcard__text")
-                            span(class="roomcard__number")=rooms[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "Р "
-                            | в сутки
-                    div(class="roomcard__rating")
-                        div(class="roomcard__stars")                
-                            while n< rooms[i].stars
-                                i(class ="material-icons md-24") star 
-                                  -n++;
-                            while n< 5
-                                i(class="material-icons md-24") star_border
-                                -n++;
-                        p(class="roomcard__reply")
-                            span(class="roomcard__number")=rooms[i].replies + " "
-                            | Отзывов
-                -i++;
-                -k++;
+    -var k = 0;
+    while (k< 12) && (i<rooms.length)
+        -let n = 0;
+        div(class = "cards roomcard cards_theme_room"  id = rooms[i].number)
+            +slider(rooms[i].images)
+            div(class="roomcard__description")
+                div(class="roomcard__textDiv")
+                    p(class="roomcard__roomnumber") №
+                        span(class="roomcard__number")=rooms[i].number
+                    p(class="roomcard__text")
+                        span(class="roomcard__number")=rooms[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "Р "
+                        | в сутки
+                div(class="roomcard__rating")
+                    div(class="roomcard__stars")                
+                        while n< rooms[i].stars
+                            i(class ="material-icons md-24") star 
+                              -n++;
+                        while n< 5
+                            i(class="material-icons md-24") star_border
+                            -n++;
+                    p(class="roomcard__reply")
+                        span(class="roomcard__number")=rooms[i].replies + " "
+                        | Отзывов
+            -i++;
+            -k++;
