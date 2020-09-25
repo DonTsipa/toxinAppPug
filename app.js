@@ -48,7 +48,7 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 
 app.use('/search', search);
@@ -74,22 +74,6 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-/*createRooms({
-  replies:145,
-  stars:5,
-  number:888,
-  bedrooms:2,
-  beds:2,
-  price:9990,
-  bathrooms:1,
-  children:0,
-  babies:0,
-  smoking:true,
-  friends:true,
-  pets:true,
-  wide_coridor:true,
-  disabled_assistant:false,
-  luxe:true,
-});*/
+/*createRooms();*/
 
   module.exports = app;

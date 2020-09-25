@@ -7,7 +7,7 @@ div(class="range")
             |
             |- 
             span#price-max=range.priceMax
-            input(class="range__price-input" type="number" readonly id="range__priceMin" name="range__priceMin" value=range.priceMin)
-            input(class="range__price-input" type="number" readonly id="range__priceMax" name="range__priceMax" value=range.priceMax)
+            input(class="range__price-input" type="number" readonly id="range__priceMin" name="priceMin" value=filters.priceMin)
+            input(class="range__price-input" type="number" readonly id="range__priceMax" name="priceMax" value=filters.priceMax)
     div(class="range__slider")
     p.range__description Стоимость за сутки пребывания в номере

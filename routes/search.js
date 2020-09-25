@@ -84,7 +84,7 @@ router.get('/', (req, res) => {
       }
       res.render('search',
         {
-          correct: rooms,
+          rooms,
           filters: req.query,
           link: 'DateFrom=' + req.query.DateFrom + '&DateTo=' + req.query.DateTo,
           user: user,
