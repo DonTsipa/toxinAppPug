@@ -19,15 +19,18 @@ button.addEventListener('click', function () {
 
 var button = document.querySelector('.header__filtersButton');
 var rooms = document.querySelector('.rooms');
+var main = document.querySelector('.main_theme-search');
 button.addEventListener('click', function () {
   var filters = document.querySelector('.filters_theme-search');
 
   if (filters.classList.contains('filters_theme-search_active')) {
     filters.classList.remove('filters_theme-search_active');
     rooms.classList.remove('rooms_disable');
+    main.style = "0";
   } else {
     filters.classList.add('filters_theme-search_active');
     rooms.classList.add('rooms_disable');
+    main.style = "max-height:760px";
   }
 });
 
@@ -99,11 +102,15 @@ if (document.getElementById('date-from')) {
 
   document.querySelectorAll('.cards__date-label').forEach(function (label) {
     return label.onclick = function () {
-      console.log(date_moved);
       var div_lightpick = document.querySelector('.lightpick');
-      div_lightpick.style.left = parseInt(div_lightpick.style.left) - 16 + "px";
+
+      if (parseInt(div_lightpick.style.left.slice(0, -2)) > 16) {
+        div_lightpick.style.left = parseInt(div_lightpick.style.left) - 16 + "px";
+      } else {
+        div_lightpick.style = "left: calc(50% - 160px); top: ".concat(parseInt(div_lightpick.style.top) + 15, "px;");
+      }
+
       div_lightpick.style.top = parseInt(div_lightpick.style.top) + 15 + "px";
-      console.log(div_lightpick.style.left);
       date_moved = true;
     };
   });

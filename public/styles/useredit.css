@@ -677,6 +677,7 @@ input:focus {
 	justify-content: space-between;
 	color: rgba(31, 32, 65, .5);
 	text-decoration: none;
+	max-width: 100%;
 }
 
 .cards a {
@@ -1152,6 +1153,12 @@ input:focus {
 	background: #fff;
 	height: 443px;
 	box-shadow: 0 -1px 0px rgba(31, 32, 65, .1);
+}
+
+@media all and (max-width: 450px) {
+	.footer {
+		height: auto;
+	}
 }
 
 body {
