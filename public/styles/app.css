@@ -26,6 +26,7 @@ input:focus {
 	justify-content: space-between;
 	color: rgba(31, 32, 65, .5);
 	text-decoration: none;
+	max-width: 100%;
 }
 
 .cards a {
@@ -76,6 +77,12 @@ input:focus {
 @media all and (max-width: 900px) {
 	.cards_theme-index {
 		left: calc(50% - 190px);
+	}
+}
+
+@media all and (max-width: 400px) {
+	.cards_theme-index {
+		left: 0;
 	}
 }
 
@@ -960,6 +967,12 @@ input:focus {
 	flex-flow: row nowrap;
 }
 
+@media all and (max-width: 900px) {
+	.main_theme-search {
+		min-height: 1px;
+	}
+}
+
 body {
 	margin: 0;
 }
@@ -1642,6 +1655,12 @@ input:focus {
 	background: #fff;
 	height: 443px;
 	box-shadow: 0 -1px 0px rgba(31, 32, 65, .1);
+}
+
+@media all and (max-width: 450px) {
+	.footer {
+		height: auto;
+	}
 }
 
 body {
@@ -2413,7 +2432,7 @@ input:focus {
 	justify-content: space-between;
 }
 
-@media all and (max-width: 1200px) {
+@media all and (max-width: 900px) {
 	.header__filtersButton {
 		display: block;
 	}
@@ -2454,10 +2473,13 @@ input:focus {
 		width: 0;
 		padding: 0;
 		overflow: hidden;
+		position: relative;
+		left: -100vh;
 	}
 
 	.filters_theme-search_active {
 		width: 100vw;
+		left: 0;
 		padding: 40px 50px;
 	}
 }
@@ -3225,11 +3247,11 @@ input:focus {
 		opacity: 1;
 		transition: opacity ease-in-out .4s;
 	}
-}
 
-.rooms_disable {
-	opacity: 0;
-	overflow: hidden;
+	.rooms_disable {
+		opacity: 0;
+		overflow: hidden;
+	}
 }
 
 @charset "utf-8";

@@ -83,11 +83,15 @@ if (document.getElementById('date-from')) {
 
   document.querySelectorAll('.cards__date-label').forEach(function (label) {
     return label.onclick = function () {
-      console.log(date_moved);
       var div_lightpick = document.querySelector('.lightpick');
-      div_lightpick.style.left = parseInt(div_lightpick.style.left) - 16 + "px";
+
+      if (parseInt(div_lightpick.style.left.slice(0, -2)) > 16) {
+        div_lightpick.style.left = parseInt(div_lightpick.style.left) - 16 + "px";
+      } else {
+        div_lightpick.style = "left: calc(50% - 160px); top: ".concat(parseInt(div_lightpick.style.top) + 15, "px;");
+      }
+
       div_lightpick.style.top = parseInt(div_lightpick.style.top) + 15 + "px";
-      console.log(div_lightpick.style.left);
       date_moved = true;
     };
   });
