@@ -8,15 +8,15 @@ const router = express.Router();
 
 
 
-router.get('/login', (req, res) => {
+router.get('/', (req, res) => {
   if (!req.session.userLogin) {
-    res.render('login.pug')
+    res.render('login')
   } else {
     res.redirect('/index');
   }
 })
 
-router.post('/login', jsonParser, (req, res) => {
+router.post('/', jsonParser, (req, res) => {
 
   const login = req.body.login;
   const password = req.body.password;
