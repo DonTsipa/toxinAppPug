@@ -6,7 +6,7 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 const router = express.Router();
 
-router.get('/order',urlencodedParser,(req,res)=>{
+router.get('/',urlencodedParser,(req,res)=>{
   let user = {
     id:req.session.userId,
     name:req.session.Name,
@@ -20,7 +20,7 @@ router.get('/order',urlencodedParser,(req,res)=>{
     }
   } 
   models.Room.findOne({number:req.query.RoomId}).then(room =>{
-    res.render('order.pug',{
+    res.render('order',{
       orderDate:req.query.DateFrom+' - '+ req.query.DateTo,
       room,
         user:user,

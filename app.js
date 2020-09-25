@@ -2,12 +2,13 @@ var express = require('express');
 const mongoose = require('mongoose');
 const path=require('path');
 const routes = require('./routes')
-const search = routes.search;
-const log_in = routes.log_in;
-const registration = routes.registration;
-const order = routes.order;
-const indexRouter = routes.indexRouter;
-
+const {
+  indexRouter,
+  order,
+  registration,
+  login,
+  search,
+} = routes;
 const bodyParser = require("body-parser");
 const session = require('express-session');
 const config = require('./config')
@@ -50,11 +51,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(['/index', '/'], indexRouter);
 app.use('/search', search);
-app.use('/registration', urlencodedParser, registration);
-app.use(['/login', '/logout'], jsonParser, log_in);
-app.use('/order', urlencodedParser, order);
+app.use('/registration', registration);
+app.use(['/login', '/logout'], login);
+app.use('/order', order);
+app.use(['/index', '/'], indexRouter);
+
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 /*createRooms({
   replies:145,

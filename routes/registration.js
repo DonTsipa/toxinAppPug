@@ -16,9 +16,9 @@ const jsonParser = bodyParser.json();
 
 //get
 
-router.get('/registration',(req,res)=>{
+router.get('/',(req,res)=>{
   if(!req.session.userLogin){
-  res.render('registration.pug')
+  res.render('registration')
 }else{
   res.redirect('/index');
 }
@@ -26,7 +26,7 @@ router.get('/registration',(req,res)=>{
 
 //отправка формы
 
-router.post('/registration',jsonParser,(req,res)=>{
+router.post('/',jsonParser,(req,res)=>{
  let checkFields = (fields) =>{
     let fieldsErr = [];
     for(let prop in fields){
