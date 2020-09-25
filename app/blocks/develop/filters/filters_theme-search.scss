@@ -16,9 +16,12 @@
         width:0;
         padding: 0;
         overflow: hidden;
+        position: relative;
+        left:-100vh;
     }
     .filters_theme-search_active {
         width:100vw;
+        left:0;
         padding: 40px 50px;
     }
   }

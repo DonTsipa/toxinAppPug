@@ -1,7 +1,13 @@
-.main_theme-search{
-    width:100%;
-    min-height:1357px;
-    padding-bottom:70px;
-    display:flex;
-    flex-flow:row nowrap;
+.main_theme-search {
+    width: 100%;
+    min-height: 1357px;
+    padding-bottom: 70px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+@media all and (max-width:900px) {
+    .main_theme-search {
+        min-height: 1px;
+    }
 }
