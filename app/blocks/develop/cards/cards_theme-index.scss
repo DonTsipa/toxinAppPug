@@ -12,3 +12,8 @@
         left:calc(50% - 190px);
     }
 }
+@media all and (max-width: 400px) {
+    .cards_theme-index {
+        left: 0;
+    }
+}

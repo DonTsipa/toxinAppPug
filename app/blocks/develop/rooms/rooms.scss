@@ -14,9 +14,9 @@
         opacity:1;
         transition: opacity ease-in-out .4s;
     }
+    .rooms_disable {
+        opacity:0;
+        overflow:hidden;
+    }
 }
 
-.rooms_disable {
-    opacity:0;
-    overflow:hidden;
-}
