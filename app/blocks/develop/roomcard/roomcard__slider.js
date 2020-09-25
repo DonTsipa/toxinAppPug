@@ -11,21 +11,29 @@ sliders.forEach((slider) => {
       slides.style.right = `${index * 100}%`
     })
   })
-  let timeout = null;
   slides.addEventListener('mouseover', (event) => {
+    let timeout = null;
     const positionNow = slides.style.right.slice(0, -1)
     const activeIndex = positionNow / 100
-    timeout = setTimeout(() => {
+    const swipe = () => {
       if (activeIndex < buttons.length - 1) {
         buttons[activeIndex + 1].click()
       } else {
         buttons[0].click();
       }
-    }, 1000);
+    } 
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      swipe();
+    } else {
+      // код для обычных устройств
+
+      timeout = setTimeout(swipe, 500);
+    }
+    slides.addEventListener('mouseout', () => {
+      clearTimeout(timeout)
+    })
   })
-  slides.addEventListener('mouseout', () => {
-    clearTimeout(timeout)
-  })
+
 
   slides.ondragstart = () => {
     return false;

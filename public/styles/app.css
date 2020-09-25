@@ -657,8 +657,6 @@ input:focus {
 	font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
 	font-weight: 900;
 	cursor: pointer;
-	width: 20px;
-	height: 20px;
 }
 
 @media all and (max-width: 1200px) {
@@ -722,8 +720,6 @@ input:focus {
 	font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
 	font-weight: 900;
 	cursor: pointer;
-	width: 20px;
-	height: 20px;
 	font-size: 32;
 }
 
@@ -2627,6 +2623,7 @@ input:focus {
 
 .range__slider {
 	width: 100%;
+	cursor: pointer;
 }
 
 /*! nouislider - 14.1.0 - 12/4/2019 */

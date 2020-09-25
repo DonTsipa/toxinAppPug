@@ -411,20 +411,29 @@ sliders.forEach(function (slider) {
       slides.style.right = "".concat(index * 100, "%");
     });
   });
-  var timeout = null;
   slides.addEventListener('mouseover', function (event) {
+    var timeout = null;
     var positionNow = slides.style.right.slice(0, -1);
     var activeIndex = positionNow / 100;
-    timeout = setTimeout(function () {
+
+    var swipe = function swipe() {
       if (activeIndex < buttons.length - 1) {
         buttons[activeIndex + 1].click();
       } else {
         buttons[0].click();
       }
-    }, 1000);
-  });
-  slides.addEventListener('mouseout', function () {
-    clearTimeout(timeout);
+    };
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      swipe();
+    } else {
+      // код для обычных устройств
+      timeout = setTimeout(swipe, 1000);
+    }
+
+    slides.addEventListener('mouseout', function () {
+      clearTimeout(timeout);
+    });
   });
 
   slides.ondragstart = function () {
