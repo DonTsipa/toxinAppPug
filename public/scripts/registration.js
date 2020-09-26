@@ -47,7 +47,13 @@ var picker = new Lightpick({
 
 datepicker_move = function datepicker_move() {
   var div_lightpick = document.querySelector('.lightpick');
-  div_lightpick.style.left = parseInt(div_lightpick.style.left) - 16 + "px";
+
+  if (parseInt(div_lightpick.style.left.slice(0, -2)) > 16) {
+    div_lightpick.style.left = parseInt(div_lightpick.style.left) - 16 + "px";
+  } else {
+    div_lightpick.style = "left: calc(50% - 160px); top: ".concat(parseInt(div_lightpick.style.top) + 15, "px;");
+  }
+
   div_lightpick.style.top = parseInt(div_lightpick.style.top) + 15 + "px";
 };
 

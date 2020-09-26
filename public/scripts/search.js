@@ -62,7 +62,13 @@ if (document.getElementById('datepicker_single')) {
 
   datepicker_move = function datepicker_move() {
     var div_lightpick = document.querySelector('.lightpick');
-    div_lightpick.style.left = parseInt(div_lightpick.style.left) - 16 + "px";
+
+    if (parseInt(div_lightpick.style.left.slice(0, -2)) > 16) {
+      div_lightpick.style.left = parseInt(div_lightpick.style.left) - 16 + "px";
+    } else {
+      div_lightpick.style = "left: calc(50% - 160px); top: ".concat(parseInt(div_lightpick.style.top) + 15, "px;");
+    }
+
     div_lightpick.style.top = parseInt(div_lightpick.style.top) + 15 + "px";
   };
 
@@ -425,7 +431,7 @@ sliders.forEach(function (slider) {
     };
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      swipe();
+      timeout = setTimeout(swipe, 500);
     } else {
       // код для обычных устройств
       timeout = setTimeout(swipe, 1000);
@@ -464,9 +470,11 @@ sliders.forEach(function (slider) {
       }
     };
 
-    mousedownEvent.target.addEventListener('mousemove', swipe);
-    document.addEventListener('mouseup', function (e) {
-      mousedownEvent.target.removeEventListener('mousemove', swipe);
+    slides.addEventListener('mousemove', swipe);
+    document.addEventListener('mouseup', function () {
+      slides.removeEventListener('mousemove', swipe);
+
+      mousedownEvent.target.onclick = function () {};
     });
   });
 });
