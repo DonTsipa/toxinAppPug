@@ -21,13 +21,13 @@ sliders.forEach((slider) => {
       } else {
         buttons[0].click();
       }
-    } 
+    }
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      swipe();
+      timeout = setTimeout(swipe, 500);
     } else {
       // код для обычных устройств
 
-      timeout = setTimeout(swipe, 500);
+      timeout = setTimeout(swipe, 1000);
     }
     slides.addEventListener('mouseout', () => {
       clearTimeout(timeout)
@@ -59,9 +59,10 @@ sliders.forEach((slider) => {
         }
       }
     }
-    mousedownEvent.target.addEventListener('mousemove', swipe)
-    document.addEventListener('mouseup', (e) => {
-      mousedownEvent.target.removeEventListener('mousemove', swipe)
+    slides.addEventListener('mousemove', swipe)
+    document.addEventListener('mouseup', () => {
+      slides.removeEventListener('mousemove', swipe)
+      mousedownEvent.target.onclick = () => {}
     })
   })
 
