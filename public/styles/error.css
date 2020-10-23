@@ -14,6 +14,52 @@ input:focus {
 	text-decoration: none;
 }
 
+.main {
+	display: block;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
+.main_theme_error {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url("img/main_main_theme_error.png") center center fixed;
+	background-size: cover;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
 .cards {
 	padding: 39px 29px 30px 29px;
 	background: #fff;
@@ -49,6 +95,18 @@ input:focus {
 	text-decoration: none;
 }
 
+.cards_theme_error {
+	z-index: 1;
+	width: 400px;
+	height: 200px;
+}
+
+@media all and (max-width: 500px) {
+	.cards_theme_error {
+		width: 100%;
+	}
+}
+
 body {
 	margin: 0;
 }
@@ -73,6 +131,22 @@ input:focus {
 	font-size: 24px;
 	line-height: 30px;
 	color: #1f2041;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
 }
 
 body {

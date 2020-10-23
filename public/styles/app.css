@@ -14,6 +14,125 @@ input:focus {
 	text-decoration: none;
 }
 
+.main {
+	display: block;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
+.main_theme_error {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url("img/main_main_theme_error.png") center center fixed;
+	background-size: cover;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
+.main_theme-index {
+	width: 100%;
+	height: 830px;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
+.main_theme-registration {
+	width: 100%;
+	height: 702px;
+	position: relative;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
+.main_theme-search {
+	width: 100%;
+	min-height: 1357px;
+	padding-bottom: 70px;
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+@media all and (max-width: 900px) {
+	.main_theme-search {
+		min-height: 1px;
+	}
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
 .cards {
 	padding: 39px 29px 30px 29px;
 	background: #fff;
@@ -47,6 +166,18 @@ input:focus {
 
 .a {
 	text-decoration: none;
+}
+
+.cards_theme_error {
+	z-index: 1;
+	width: 400px;
+	height: 200px;
+}
+
+@media all and (max-width: 500px) {
+	.cards_theme_error {
+		width: 100%;
+	}
 }
 
 body {
@@ -195,6 +326,22 @@ input:focus {
 	font-size: 24px;
 	line-height: 30px;
 	color: #1f2041;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
 }
 
 body {
@@ -578,7 +725,7 @@ input:focus {
 	min-height: 900px;
 	max-height: 100%;
 	position: absolute;
-	background: url(img/main-index-background_index__back.png) no-repeat;
+	background: url(img/main-index-background_index__back.png) center center fixed;
 	background-size: cover;
 }
 
@@ -657,6 +804,8 @@ input:focus {
 	font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
 	font-weight: 900;
 	cursor: pointer;
+	width: 40px;
+	height: 40px;
 }
 
 @media all and (max-width: 1200px) {
@@ -873,99 +1022,6 @@ input:focus {
 
 .a {
 	text-decoration: none;
-}
-
-body {
-	margin: 0;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-input:focus {
-	outline: none;
-}
-
-.a {
-	text-decoration: none;
-}
-
-.main {
-	display: block;
-}
-
-body {
-	margin: 0;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-input:focus {
-	outline: none;
-}
-
-.a {
-	text-decoration: none;
-}
-
-.main_theme-index {
-	width: 100%;
-	height: 830px;
-}
-
-body {
-	margin: 0;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-input:focus {
-	outline: none;
-}
-
-.a {
-	text-decoration: none;
-}
-
-.main_theme-registration {
-	width: 100%;
-	height: 702px;
-	position: relative;
-}
-
-body {
-	margin: 0;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-input:focus {
-	outline: none;
-}
-
-.a {
-	text-decoration: none;
-}
-
-.main_theme-search {
-	width: 100%;
-	min-height: 1357px;
-	padding-bottom: 70px;
-	display: flex;
-	flex-flow: row nowrap;
-}
-
-@media all and (max-width: 900px) {
-	.main_theme-search {
-		min-height: 1px;
-	}
 }
 
 body {
@@ -1962,7 +2018,7 @@ input:focus {
 	min-height: 772px;
 	max-height: 100%;
 	position: absolute;
-	background: url(img/main-registration-background_registration__back.png) no-repeat;
+	background: url(img/main-registration-background_registration__back.png) center center fixed;
 	background-size: cover;
 }
 
@@ -2475,7 +2531,8 @@ input:focus {
 	.filters_theme-search_active {
 		width: 100vw;
 		left: 0;
-		padding: 40px 50px;
+		padding: 40px 30px 100px 30px;
+		height: 900px;
 	}
 }
 
@@ -3681,7 +3738,23 @@ input:focus {
 	border: none;
 }
 
-.pagination__button_next {
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
+.pagination__button_arrow {
 	color: #fff;
 	border-radius: 50%;
 	background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
