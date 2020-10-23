@@ -12,6 +12,12 @@ document.body.onclick = function (e) {
             focus = undefined;
         }  
     }
+    if(menu_expand){
+        if((!menu.contains(target)) && (!menuButton.contains(target)) && !(menuButton == target)){ 
+            menu.classList.remove('header__navigation_active');
+            menu_expand = false;
+        }  
+    }
 }
 
 boxes.forEach(box =>{

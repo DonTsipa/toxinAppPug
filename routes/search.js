@@ -6,9 +6,9 @@ const router = express.Router();
 
 //получение формы
 
-router.get('/', (req, res) => {
+router.get(['/'], (req, res) => {
   //объект по дефолту, для дополнения "урезанного" полученного объекта с индекса
-
+  const number = 12;
   try {
     let defaultobj = {
       DateFrom: '',
@@ -61,9 +61,9 @@ router.get('/', (req, res) => {
       children,
       bedrooms,
       beds,
-      bathrooms
+      bathrooms,
+      page,
     } = req.query;
-
     const options = {
       price: { $gte: parseInt(priceMin), $lte: parseInt(priceMax) },
       babies: { $gte: parseInt(babies) },
@@ -84,7 +84,8 @@ router.get('/', (req, res) => {
       }
       res.render('search',
         {
-          rooms,
+          page,
+          rooms: rooms.splice((page - 1) * number, number),
           filters: req.query,
           link: 'DateFrom=' + req.query.DateFrom + '&DateTo=' + req.query.DateTo,
           user: user,

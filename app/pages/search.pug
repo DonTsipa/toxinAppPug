@@ -1,4 +1,6 @@
 - if(!filters){filters = { DateFrom: '', DateTo: '', smoking: false, pets: false, friends: false, wide_coridor: false, disabled_assistant: false, numberFacilities: false, bedrooms: 0, beds:0, bathrooms: 0, numberGuests: 0, adults: 0, children: 0, babies: 0, priceMin: 0, priceMax: 20000, numberFacilities:"Удобства",  numberGuests:"Сколько гостей"  }}
+-if(!numberOfPages){numberOfPages = 15}
+-if(!page){page=1}
 mixin checkbox(name,text,check)
     label(class="checkboxes__label" for=name)
         input(name=name class="checkboxes__input" value = "true" checked = check type="checkbox" id=name)
@@ -8,7 +10,7 @@ mixin checkbox(name,text,check)
         else
             p(class="checkboxes__text")=text
 mixin pagenumber(number)
-    div(class="pagination__button")
+    div(class="pagination__button pagination__button_number")
         span(class="pagination__number")=number
 <!DOCTYPE html>
 html(lang="en")
@@ -27,7 +29,7 @@ html(lang="en")
     body
         include ../blocks/develop/header/header.pug
         main(class="main_theme-search")
-            form(action = "search" method= "GET")
+            form(action = "search" method= "GET" id="filters")
                 div(class="filters filters_theme-search")
                     label(class="filters__item cards__input datepicker_theme-single datepicker__label" for="datepicker_single")
                         input( name = "dateRange" id="datepicker_single" type="text" class="cards__date-input" data-multiple-dates-separator=" - " readonly value=(filters.DateFrom + ' - '+filters.DateTo)  placeholder='ДД.ММ.ГГГГ')
@@ -54,6 +56,7 @@ html(lang="en")
                                 p(class="checkboxes__text checkboxes__text_theme_light") На 1 этаже вас встретит специалист  и проводит до номера.
                     .filters__item
                         include ../blocks/develop/dropdown/facilitiesDropdown.pug
+                    input(type="hidden" name="page" id="page" value=page)
                     button(type="submit" id = "search" class="filters__item cards__button cards__button_theme_filled")
                         p Найти
                         i(class="cards__material-icons material-icons md-24") arrow_forward
@@ -75,16 +78,31 @@ html(lang="en")
                 div(class = "roomсards")
                     include ../blocks/develop/roomcard/roomcard.pug
                 div(class="pagination")
-                    -let number = 1;
-                    while (number<4)
+                    if (page>1)
+                        div(class="pagination__button pagination__button_arrow pagination__button_back")
+                            i(class="material-icons md-24") arrow_back
+                    if (page>2)
+                        +pagenumber(1)
+                    -let number = page;
+                    -let buttonsNumber = 3;
+                    -if (page>1) { number = page - 1; buttonsNumber = 2 }
+                    -if (page == numberOfPages) { number = page - 2; buttonsNumber = 0}
+                    -if (page == numberOfPages - 2) { number = page}
+                    if (page>2)
+                        div(class="pagination__button")
+                            span(class="pagination__number")='...'
+                    while ((number<parseInt(page) + buttonsNumber) && (number<numberOfPages))
                         +pagenumber(number)
                         -number++;
-                    +pagenumber('...')
-                    +pagenumber(15)
-                    div(class="pagination__button pagination__button_next")
-                        i(class="material-icons md-24") arrow_forward
+                    if (page<numberOfPages - 2)
+                        div(class="pagination__button")
+                            span(class="pagination__number")='...'
+                    +pagenumber(numberOfPages)
+                    if (page < numberOfPages)
+                        div(class="pagination__button pagination__button_arrow pagination__button_forward")
+                            i(class="material-icons md-24") arrow_forward
         include ../blocks/develop/footer/footer.pug    
     script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js")
     script(src="./scripts/lightpick.js")
     script(src="./scripts/nouislider.js")
-    script(src="./scripts/search.min.js")
+    script(src="./scripts/search.js")
