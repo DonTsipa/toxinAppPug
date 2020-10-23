@@ -4,6 +4,7 @@
     padding-bottom: 70px;
     display: flex;
     flex-flow: row nowrap;
+    overflow: hidden;
 }
 
 @media all and (max-width:900px) {
