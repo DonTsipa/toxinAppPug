@@ -1,11 +1,13 @@
-var button = document.querySelector('.header__menuButton');
-button.addEventListener('click', function () {
-  var menu = document.querySelector('.header__navigation');
-
+var menu_expand = false;
+var menuButton = document.querySelector('.header__menuButton');
+var menu = document.querySelector('.header__navigation');
+menuButton.addEventListener('click', function () {
   if (menu.classList.contains('header__navigation_active')) {
     menu.classList.remove('header__navigation_active');
+    menu_expand = false;
   } else {
     menu.classList.add('header__navigation_active');
+    menu_expand = true;
   }
 });
 
@@ -132,6 +134,13 @@ document.body.onclick = function (e) {
     if (!focus.contains(target)) {
       focus.querySelector('.dropdown__full').classList.remove('dropdown__full_visible');
       focus = undefined;
+    }
+  }
+
+  if (menu_expand) {
+    if (!menu.contains(target) && !menuButton.contains(target) && !(menuButton == target)) {
+      menu.classList.remove('header__navigation_active');
+      menu_expand = false;
     }
   }
 };
@@ -479,12 +488,59 @@ sliders.forEach(function (slider) {
   });
 });
 
+const paginationButtons = document.querySelectorAll('.pagination__button_number');
+const pageInput = document.querySelector('#page');
+const filtersForm = document.querySelector('#filters');
+const active = pageInput.value;
+const last = paginationButtons[paginationButtons.length - 1].querySelector('.pagination__number').innerText
+const paginationBack = document.querySelector('.pagination__button_back');
+const paginationForward = document.querySelector('.pagination__button_forward');
+
+let page = '';
+
+switch (active) {
+  case '1':
+    paginationButtons[0].classList.add('pagination__button_active');
+    break;
+  case '2':
+    paginationButtons[1].classList.add('pagination__button_active');
+    break;
+  case (last - 2).toString():
+    paginationButtons[1].classList.add('pagination__button_active');
+    break;
+  case last:
+    paginationButtons[3].classList.add('pagination__button_active');
+    break;
+  default:
+    paginationButtons[2].classList.add('pagination__button_active');
+    break;
+}
+if (paginationBack) {
+  paginationBack.addEventListener('click', (event) => {
+    pageInput.value = active - 1;
+    filtersForm.submit()
+  });
+}
+
+if (paginationForward) {
+  paginationForward.addEventListener('click', (event) => {
+    pageInput.value = parseInt(active) + 1
+    filtersForm.submit()
+  });
+}
 
 
-
-var firstNumber = document.querySelector('.pagination__button');
-firstNumber.classList.add('pagination__button_active');
-
-
+paginationButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    if (event.target.classList.contains('pagination__number')) {
+      page = event.target.innerText
+    }
+    else {
+      page = event.target.querySelector('.pagination__number').innerText
+    }
+    pageInput.value = page
+    filtersForm.submit()
+  })
+})
 
 

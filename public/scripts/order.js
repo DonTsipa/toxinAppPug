@@ -1,12 +1,14 @@
 
-var button = document.querySelector('.header__menuButton');
-button.addEventListener('click', function () {
-  var menu = document.querySelector('.header__navigation');
-
+var menu_expand = false;
+var menuButton = document.querySelector('.header__menuButton');
+var menu = document.querySelector('.header__navigation');
+menuButton.addEventListener('click', function () {
   if (menu.classList.contains('header__navigation_active')) {
     menu.classList.remove('header__navigation_active');
+    menu_expand = false;
   } else {
     menu.classList.add('header__navigation_active');
+    menu_expand = true;
   }
 });
 
@@ -117,6 +119,13 @@ document.body.onclick = function (e) {
     if (!focus.contains(target)) {
       focus.querySelector('.dropdown__full').classList.remove('dropdown__full_visible');
       focus = undefined;
+    }
+  }
+
+  if (menu_expand) {
+    if (!menu.contains(target) && !menuButton.contains(target) && !(menuButton == target)) {
+      menu.classList.remove('header__navigation_active');
+      menu_expand = false;
     }
   }
 };

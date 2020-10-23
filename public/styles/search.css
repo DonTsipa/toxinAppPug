@@ -73,6 +73,8 @@ input:focus {
 	font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
 	font-weight: 900;
 	cursor: pointer;
+	width: 40px;
+	height: 40px;
 }
 
 @media all and (max-width: 1200px) {
@@ -745,7 +747,8 @@ input:focus {
 	.filters_theme-search_active {
 		width: 100vw;
 		left: 0;
-		padding: 40px 50px;
+		padding: 40px 30px 100px 30px;
+		height: 900px;
 	}
 }
 
@@ -2665,7 +2668,23 @@ input:focus {
 	border: none;
 }
 
-.pagination__button_next {
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a {
+	text-decoration: none;
+}
+
+.pagination__button_arrow {
 	color: #fff;
 	border-radius: 50%;
 	background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
