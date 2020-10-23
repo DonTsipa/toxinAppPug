@@ -9,13 +9,12 @@ html(lang='en')
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel="stylesheet")
         link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet")
-        link(href="./styles/log-in.css" rel="stylesheet")
         link(href="./styles/error.css" rel="stylesheet")
         script(src='./scripts/error.js')
         title 404 page
     body
-        main
-            div.cards.cards_theme_error
+        main.main_theme_error
+            .cards.cards_theme_error
                 h2.cards__heading.cards__heading_error 404 Page Error
                 p.registration__log-in-text Page not found :(
                 button.cards__button.cards__button_theme_filled(onclick='goBack()') 
