@@ -10,6 +10,6 @@ button.addEventListener('click', () => {
   } else {
     filters.classList.add('filters_theme-search_active')
     rooms.classList.add('rooms_disable')
-    main.style="max-height:760px";
+    main.style="max-height:100vh";
   }
 })
