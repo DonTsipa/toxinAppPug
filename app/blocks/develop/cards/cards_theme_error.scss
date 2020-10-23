@@ -1,1 +1,11 @@
-.cards_theme_error {}
+.cards_theme_error {
+  z-index: 1;
+  width:400px;
+  height:200px;
+}
+
+@media all and (max-width:500px) {
+  .cards_theme_error{
+    width:100%;
+  }
+}

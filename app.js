@@ -48,7 +48,7 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 
 app.use('/search', search);
@@ -59,7 +59,8 @@ app.use(['/index', '/'], indexRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
+  res.render('error');
   next(createError(404));
 });
 
@@ -71,7 +72,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  console.log(err)
 });
 
 /*createRooms();*/
